@@ -38,6 +38,7 @@ const getRecipeSuccess = (responseData) => {
 const updateRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Updated recipe')
+  $('#update-recipe-form').hide()
   $('#crud-content').empty()
   // store.recipeUpdate = responseData.recipe
   // // use store.recipeUpdate.id to access this updated recipe's id

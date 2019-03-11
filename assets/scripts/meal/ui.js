@@ -1,0 +1,50 @@
+'use strict'
+
+const createMealSuccess = (responseData) => {
+  $('form').trigger('reset')
+  $('#user-message').text('Successfully created meal')
+  $('#meal-div').hide()
+  $('#direction-div').show()
+}
+
+const getMealsSuccess = (responseData) => {
+  $('form').trigger('reset')
+  $('#crud-content').text('Meals:')
+  responseData.meals.forEach(meal => {
+    const mealHtml = (`
+      <h3>${meal.id}: ${meal.name}</h3>
+      <p>${meal.description}</p>
+      <p></p>
+  `)
+    $('#crud-content').append(mealHtml)
+  })
+}
+
+const getMealSuccess = (responseData) => {
+  $('form').trigger('reset')
+}
+
+const updateMealSuccess = (responseData) => {
+  $('form').trigger('reset')
+  $('#user-message').text('Updated meal')
+}
+
+const deleteMealSuccess = () => {
+  $('form').trigger('reset')
+  $('#crud-content').text('Meal successfully deleted')
+}
+
+const failure = () => {
+  $('#crud-content').text('')
+  $('#user-message').text('Something went wrong.')
+  $('form').trigger('reset')
+}
+
+module.exports = {
+  createMealSuccess,
+  getMealsSuccess,
+  getMealSuccess,
+  updateMealSuccess,
+  deleteMealSuccess,
+  failure
+}

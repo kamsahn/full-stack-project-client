@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Recipes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Full stack recipe project</h1>
+  <p id="user-message"></p>
+  <p id="crud-content"></p>
+  <form id="sign-up-form">
+    <input name="credentials[email]" type="text" placeholder="email">
+    <input name="credentials[password]" type="password" placeholder="password">
+    <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
+    <input type="submit" value="Sign Up">
+  </form>
+  <form id="sign-in-form">
+    <input name="credentials[email]" type="text" placeholder="email">
+    <input name="credentials[password]" type="password" placeholder="password">
+    <input type="submit" value="Sign In">
+  </form>
+  <form id="change-password-form">
+    <input name="passwords[old]" type="password" placeholder="old password">
+    <input name="passwords[new]" type="password" placeholder="new password">
+    <input type="submit" value="Change Password">
+  </form>
+  <form id="sign-out-form">
+    <input type="submit" value="Sign Out">
+  </form>
+
+  <div id="recipe-div" class="resource-div">
+    <form id="create-recipe-form">
+      <input name="recipe[name]" type="text" placeholder="Enter recipe name">
+      <input name="recipe[description]" type="text" placeholder="Enter recipe description">
+      <input type="submit" value="Create Recipe">
+    </form>
+    <form id="get-recipes-form">
+      <input type="submit" value="Get Recipes">
+    </form>
+    <form id="get-recipe-form">
+      <input name="recipe[id]" type="number" placeholder="Enter recipe id">
+      <input type="submit" value="Get Recipe">
+    </form>
+    <form id="update-recipe-form">
+      <input name="recipe[name]" type="text" placeholder="Updated recipe name here">
+      <input name="recipe[description]" type="text" placeholder="Updated recipe description here">
+      <input name="recipe[id]" type="number" placeholder="Recipe ID">
+      <input type="submit" value="Update Recipe">
+    </form>
+    <form id="delete-recipe-form">
+      <input name="recipe[id]" type="number" placeholder="Enter recipe id">
+      <input type="submit" value="Delete Recipe">
+    </form>
+  </div>
+
+  <div id="ingredient-div" class="resource-div">
+    <form id="create-ingredient-form">
+      <input name="ingredient[name]" type="text" placeholder="Enter ingredient name">
+      <input type="submit" value="Create Ingredient">
+    </form>
+    <form id="update-ingredient-form">
+      <input name="ingredient[name]" type="text" placeholder="Updated ingredient name here">
+      <input name="ingredient[id]" type="number" placeholder="Ingredient ID">
+      <input type="submit" value="Update Ingredient">
+    </form>
+    <form id="delete-ingredient-form">
+      <input name="ingredient[id]" type="number" placeholder="Enter ingredient id">
+      <input type="submit" value="Delete Ingredient">
+    </form>
+  </div>
+
+  <div id="meal-div" class="resource-div">
+    <form id="create-meal-form">
+      <input name="meal[unit]" type="text" placeholder="Enter meal unit">
+      <input name="meal[amount]" type="text" placeholder="Enter meal amount">
+      <input type="submit" value="Create Meal">
+    </form>
+    <form id="update-meal-form">
+      <input name="meal[unit]" type="text" placeholder="Enter meal unit">
+      <input name="meal[amount]" type="text" placeholder="Enter meal amount">
+      <input type="submit" value="Update Meal">
+    </form>
+  </div>
+
+
+  <div id="direction-div" class="resource-div">
+    <form id="create-direction-form">
+      <input name="direction[step]" type="text" placeholder="Enter direction step">
+      <input type="submit" value="Create Direction">
+    </form>
+    <form id="update-direction-form">
+      <input name="direction[step]" type="text" placeholder="Updated direction step here">
+      <input name="direction[id]" type="number" placeholder="Direction ID">
+      <input type="submit" value="Update Direction">
+    </form>
+    <form id="delete-direction-form">
+      <input name="direction[id]" type="number" placeholder="Enter direction id">
+      <input type="submit" value="Delete Direction">
+    </form>
+  </div>
+</body>
+
+</html>

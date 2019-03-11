@@ -1,0 +1,18 @@
+{{#each recipes as |recipe|}}
+
+  <section class="recipe">
+    <h2 data-id="{{recipe.id}}">
+      <small>Title:</small> {{recipe.description}}
+    </h2>
+    <p>
+      <small>Description:</small>
+      {{#if recipe.description}}
+        {{recipe.description}}
+      {{else}}
+        No description provided.
+      {{/if}}
+    </p>
+    <button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
+  </section>
+
+{{/each}}

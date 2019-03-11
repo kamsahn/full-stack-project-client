@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 
 const createRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
@@ -14,15 +15,18 @@ const createRecipeSuccess = (responseData) => {
 
 const getRecipesSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#crud-content').text('Recipes:')
-  responseData.recipes.forEach(recipe => {
-    const recipeHtml = (`
-      <p>${recipe.id}: ${recipe.name}</p>
-      <p>${recipe.description}</p>
-      <p></p>
-  `)
-    $('#crud-content').append(recipeHtml)
-  })
+  const showRecipesHtml = showRecipesTemplate({ recipes: responseData.recipes })
+  $('#crud-content').append(showRecipesHtml)
+
+  // responseData.recipes.forEach(recipe => {
+  // $('#crud-content').text('Recipes:')
+  //   const recipeHtml = (`
+  //     <p>${recipe.id}: ${recipe.name}</p>
+  //     <p>${recipe.description}</p>
+  //     <p></p>
+  // `)
+  // $('#crud-content').append(recipeHtml)
+  // })
 }
 
 const getRecipeSuccess = (responseData) => {

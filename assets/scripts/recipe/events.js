@@ -24,9 +24,8 @@ const onGetRecipes = (event) => {
 
 const onGetRecipe = (event) => {
   event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.getRecipe(formData)
+  const id = $(event.target).data('id')
+  api.getRecipe(id)
     .then(ui.getRecipeSuccess)
     .catch(ui.failure)
 }
@@ -39,15 +38,6 @@ const onUpdateRecipe = (event) => {
     .then(ui.updateRecipeSuccess)
     .catch(ui.failure)
 }
-
-// const onDeleteRecipe = (event) => {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.deleteRecipe(formData)
-//     .then(ui.deleteRecipeSuccess)
-//     .catch(ui.failure)
-// }
 
 const onDeleteRecipe = (event) => {
   event.preventDefault()
@@ -63,6 +53,7 @@ const recipeHandler = () => {
   $('#get-recipe-form').on('submit', onGetRecipe)
   $('#update-recipe-form').on('submit', onUpdateRecipe)
   $('#delete-recipe-form').on('submit', onDeleteRecipe)
+  $('#crud-content').on('click', '.btn-get', onGetRecipe)
   $('#crud-content').on('click', '.btn-danger', onDeleteRecipe)
 }
 

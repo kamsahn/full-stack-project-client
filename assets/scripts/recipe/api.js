@@ -24,9 +24,9 @@ const getRecipes = (formData) => {
   })
 }
 
-const getRecipe = (formData) => {
+const getRecipe = (id) => {
   return $.ajax({
-    url: config.apiUrl + `/recipes/${formData.recipe.id}`,
+    url: config.apiUrl + `/recipes/${id}`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

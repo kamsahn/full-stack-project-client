@@ -2,6 +2,7 @@
 
 const store = require('../store.js')
 const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
+const indexRecipeTemplate = require('../templates/recipe-index.handlebars')
 
 const createRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
@@ -17,21 +18,12 @@ const getRecipesSuccess = (responseData) => {
   $('form').trigger('reset')
   const showRecipesHtml = showRecipesTemplate({ recipes: responseData.recipes })
   $('#crud-content').append(showRecipesHtml)
-
-  // responseData.recipes.forEach(recipe => {
-  // $('#crud-content').text('Recipes:')
-  //   const recipeHtml = (`
-  //     <p>${recipe.id}: ${recipe.name}</p>
-  //     <p>${recipe.description}</p>
-  //     <p></p>
-  // `)
-  // $('#crud-content').append(recipeHtml)
-  // })
 }
 
 const getRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#crud-content').text(responseData.recipe.id + ': ' + responseData.recipe.name + ', ' + responseData.recipe.description)
+  const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
+  $('#crud-content').html(indexRecipeHtml)
 }
 
 const updateRecipeSuccess = (responseData) => {

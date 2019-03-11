@@ -10,5 +10,14 @@
         No description provided.
       {{/if}}
     </p>
+
+    {{#each recipe.ingredients_list as |ing|}}
+    <p>{{ing.amount}} {{ing.unit}} of {{ing.ingredient}}</p>
+    {{/each}}
+
+    {{#each recipe.directions as |dir|}}
+    <p>{{dir.step}}</p>
+    {{/each}}
+
     <button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
   </section>

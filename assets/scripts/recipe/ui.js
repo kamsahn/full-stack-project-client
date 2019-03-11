@@ -31,13 +31,14 @@ const getRecipesSuccess = (responseData) => {
 
 const getRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
+  console.log(responseData)
   const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
   $('#crud-content').html(indexRecipeHtml)
 }
 
 const updateRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Updated recipe')
+  $('#user-message').text('Successfully updated recipe')
   $('#update-recipe-form').hide()
   $('#crud-content').empty()
   // store.recipeUpdate = responseData.recipe

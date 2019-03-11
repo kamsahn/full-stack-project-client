@@ -34,6 +34,7 @@ const onUpdateRecipe = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  formData.recipe.id = store.updateRecipeId
   api.updateRecipe(formData)
     .then(ui.updateRecipeSuccess)
     .catch(ui.failure)
@@ -47,13 +48,25 @@ const onDeleteRecipe = (event) => {
     .catch(ui.failure)
 }
 
+const onStartCreateRecipe = (event) => {
+  event.preventDefault()
+  ui.showCreateRecipeForm()
+}
+
+const onStartUpdateRecipe = (event) => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  store.updateRecipeId = id
+  ui.showUpdateRecipeForm()
+}
+
 const recipeHandler = () => {
   $('#create-recipe-form').on('submit', onCreateRecipe)
   $('#get-recipes-form').on('submit', onGetRecipes)
-  $('#get-recipe-form').on('submit', onGetRecipe)
   $('#update-recipe-form').on('submit', onUpdateRecipe)
-  $('#delete-recipe-form').on('submit', onDeleteRecipe)
+  $('#crud-content').on('click', '.btn-create', onStartCreateRecipe)
   $('#crud-content').on('click', '.btn-get', onGetRecipe)
+  $('#crud-content').on('click', '.btn-update', onStartUpdateRecipe)
   $('#crud-content').on('click', '.btn-danger', onDeleteRecipe)
 }
 

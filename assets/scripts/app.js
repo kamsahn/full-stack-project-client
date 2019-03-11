@@ -13,7 +13,10 @@ const directionEvents = require('./direction/events.js')
 const mealEvents = require('./meal/events.js')
 
 $(() => {
-  $('.resource-div').hide()
+  $('#recipe-div').hide()
+  $('#meal-div').hide()
+  $('#ingredient-div').hide()
+  $('#direction-div').hide()
   $('#change-password-form').hide()
   $('#sign-out-form').hide()
   authEvents.authHandler()

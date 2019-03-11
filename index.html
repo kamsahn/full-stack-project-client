@@ -16,7 +16,6 @@
 <body>
   <h1>Full stack recipe project</h1>
   <p id="user-message"></p>
-  <p id="crud-content"></p>
   <form id="sign-up-form">
     <input name="credentials[email]" type="text" placeholder="email">
     <input name="credentials[password]" type="password" placeholder="password">
@@ -37,6 +36,7 @@
     <input type="submit" value="Sign Out">
   </form>
 
+  <p id="crud-content"></p>
   <div id="recipe-div" class="resource-div">
     <form id="create-recipe-form">
       <input name="recipe[name]" type="text" placeholder="Enter recipe name">
@@ -44,16 +44,11 @@
       <input type="submit" value="Create Recipe">
     </form>
     <form id="get-recipes-form">
-      <input type="submit" value="Get Recipes">
-    </form>
-    <form id="get-recipe-form">
-      <input name="recipe[id]" type="number" placeholder="Enter recipe id">
-      <input type="submit" value="Get Recipe">
+      <input type="submit" value="Recipes">
     </form>
     <form id="update-recipe-form">
       <input name="recipe[name]" type="text" placeholder="Updated recipe name here">
       <input name="recipe[description]" type="text" placeholder="Updated recipe description here">
-      <input name="recipe[id]" type="number" placeholder="Recipe ID">
       <input type="submit" value="Update Recipe">
     </form>
   </div>

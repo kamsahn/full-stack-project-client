@@ -18,6 +18,8 @@ const signInSuccess = (responseData) => {
   $('#change-password-form').show()
   $('#sign-out-form').show()
   $('#recipe-div').show()
+  $('#update-recipe-form').hide()
+  $('#create-recipe-form').hide()
   store.user = responseData.user
   setTimeout(() => {
     $('#user-message').text('')
@@ -41,6 +43,7 @@ const signOutSuccess = () => {
   $('#change-password-form').hide()
   $('#sign-out-form').hide()
   $('.resource-div').hide()
+  $('#crud-content').empty()
   $('#sign-up-form').show()
   $('#sign-in-form').show()
   store.user = null

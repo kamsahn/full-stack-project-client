@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store.js')
 const api = require('./api.js')
+const mealApi = require('../meal/api.js')
 const ui = require('./ui.js')
 
 // accesses all ingredients currently in the store
@@ -25,8 +26,13 @@ const onCreateIngredient = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  formData.meal.recipe_id = store.createIngRecipeId
   api.createIngredient(formData)
     .then(ui.createIngredientSuccess)
+    .then(() => {
+      formData.meal.ingredient_id = store.ingredientCreate.id
+      mealApi.createMeal(formData)
+    })
     .catch(ui.failure)
 }
 
@@ -89,12 +95,20 @@ const onDeleteIngredient = (event) => {
     .catch(ui.failure)
 }
 
+const onStartCreateIngredient = (event) => {
+  event.preventDefault()
+  ui.showCreateIngredientForm()
+  const id = $(event.target).data('id')
+  store.createIngRecipeId = id
+}
+
 const ingredientHandler = () => {
   $('#create-ingredient-form').on('submit', onCreateIngredient)
   $('#get-ingredients-form').on('submit', onGetIngredients)
   $('#get-ingredient-form').on('submit', onGetIngredient)
   $('#update-ingredient-form').on('submit', onUpdateIngredient)
   $('#delete-ingredient-form').on('submit', onDeleteIngredient)
+  $('#crud-content').on('click', '.btn-add', onStartCreateIngredient)
 }
 
 module.exports = {

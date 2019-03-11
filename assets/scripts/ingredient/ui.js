@@ -5,10 +5,7 @@ const store = require('../store.js')
 const createIngredientSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Successfully created ingredient')
-  $('#crud-content').text(responseData.ingredient.id + ': ' + responseData.ingredient.name)
   store.ingredientCreate = responseData.ingredient
-  $('#ingredient-div').hide()
-  $('#meal-div').show()
 }
 
 const getIngredientsSuccess = (responseData) => {
@@ -40,6 +37,10 @@ const deleteIngredientSuccess = () => {
   $('#crud-content').text('Ingredient successfully deleted')
 }
 
+const showCreateIngredientForm = () => {
+  $('#ingredient-div').show()
+}
+
 const failure = () => {
   $('#crud-content').text('')
   $('#user-message').text('Something went wrong.')
@@ -52,5 +53,6 @@ module.exports = {
   getIngredientSuccess,
   updateIngredientSuccess,
   deleteIngredientSuccess,
+  showCreateIngredientForm,
   failure
 }

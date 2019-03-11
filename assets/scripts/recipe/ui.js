@@ -16,7 +16,7 @@ const createRecipeSuccess = (responseData) => {
 }
 
 const showCreateRecipeForm = () => {
-  $('#create-recipe-form').show()
+  $('#ingredient-div').show()
 }
 
 const showUpdateRecipeForm = () => {
@@ -31,7 +31,6 @@ const getRecipesSuccess = (responseData) => {
 
 const getRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
-  console.log(responseData)
   const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
   $('#crud-content').html(indexRecipeHtml)
 }

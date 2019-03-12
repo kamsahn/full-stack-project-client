@@ -44,9 +44,21 @@ const onSignOut = (event) => {
     .catch(ui.failure)
 }
 
+const toSignIn = (event) => {
+  event.preventDefault()
+  ui.toSignIn()
+}
+
+const toSignUp = (event) => {
+  event.preventDefault()
+  ui.toSignUp()
+}
+
 const authHandler = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
+  $('#sign-up-form').on('click', '.btn-secondary', toSignIn)
+  $('#sign-in-form').on('click', '.btn-secondary', toSignUp)
   $('#change-password-form').on('submit', onChangePassword)
   $('#sign-out-form').on('submit', onSignOut)
 }

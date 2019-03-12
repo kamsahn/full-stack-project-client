@@ -12,11 +12,15 @@ const signUpSuccess = () => {
 const signInSuccess = (responseData) => {
   $('#user-message').text('Successfully signed in.')
   $('form').trigger('reset')
+
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
-  $('#change-password-form').show()
+
+  $('#change-password-button').show()
   $('#sign-out-form').show()
+
   $('#get-recipes-form').show()
+
   store.user = responseData.user
   setTimeout(() => {
     $('#user-message').text('')
@@ -35,10 +39,11 @@ const signOutSuccess = () => {
   $('#user-message').text('Successfully signed out.')
   $('form').trigger('reset')
   $('#change-password-form').hide()
+  $('#change-password-button').hide()
   $('#sign-out-form').hide()
 
   $('#create-recipe-form').hide()
-  $('#get-recipe-form').hide()
+  $('#get-recipes-form').hide()
   $('#update-recipe-form').hide()
 
   $('#create-ingredient-form').hide()
@@ -49,12 +54,21 @@ const signOutSuccess = () => {
 
   $('#crud-content').empty()
 
-  $('#sign-up-form').show()
   $('#sign-in-form').show()
   store.user = null
   setTimeout(() => {
     $('#user-message').text('')
   }, 5000)
+}
+
+const toSignIn = () => {
+  $('#sign-up-form').hide()
+  $('#sign-in-form').show()
+}
+
+const toSignUp = () => {
+  $('#sign-in-form').hide()
+  $('#sign-up-form').show()
 }
 
 const failure = () => {
@@ -70,5 +84,7 @@ module.exports = {
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
+  toSignIn,
+  toSignUp,
   failure
 }

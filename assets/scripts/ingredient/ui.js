@@ -34,20 +34,22 @@ const updateIngredientSuccess = (responseData) => {
   $('#update-ingredient-form').hide()
   $('#delete-ingredient-form').hide()
   $('#crud-content').empty()
+  store.ingUpdateIngId = null
+  store.mealUpdateMealeId = null
 }
 
 const deleteIngredientSuccess = () => {
   $('form').trigger('reset')
   $('#crud-content').text('Ingredient successfully deleted')
+  store.ingDeleteIngId = null
 }
 
 const showCreateIngredientForm = () => {
   $('#create-ingredient-form').show()
 }
 
-const showEditForms = () => {
+const showUpdateForms = () => {
   $('#update-ingredient-form').show()
-  $('#delete-ingredient-form').show()
 }
 
 const failure = () => {
@@ -63,6 +65,6 @@ module.exports = {
   updateIngredientSuccess,
   deleteIngredientSuccess,
   showCreateIngredientForm,
-  showEditForms,
+  showUpdateForms,
   failure
 }

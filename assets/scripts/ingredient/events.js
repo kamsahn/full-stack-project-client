@@ -73,7 +73,7 @@ const onUpdateIngredient = (event) => {
 
 const onDeleteIngredient = (event) => {
   event.preventDefault()
-  api.deleteIngredient(store.ingUpdateIngId)
+  api.deleteIngredient(store.ingDeleteIngId)
     .then(ui.deleteIngredientSuccess)
     .catch(ui.failure)
 }
@@ -85,13 +85,20 @@ const onStartCreateIngredient = (event) => {
   store.mealCreateRecipeId = id
 }
 
-const onEditIngredient = (event) => {
+const onStartUpdateIngredient = (event) => {
   event.preventDefault()
-  ui.showEditForms()
-  const ingId = $(event.target).data('ing-id')
+  ui.showUpdateForms()
+  const ingId = $(event.target).parent().data('ing-id')
   store.ingUpdateIngId = ingId
-  const mealId = $(event.target).data('meal-id')
+  const mealId = $(event.target).parent().data('meal-id')
   store.mealUpdateMealeId = mealId
+}
+
+const onStartDeleteIngredient = (event) => {
+  event.preventDefault()
+  const ingId = $(event.target).parent().data('ing-id')
+  store.ingDeleteIngId = ingId
+  onDeleteIngredient(event)
 }
 
 const ingredientHandler = () => {
@@ -101,7 +108,8 @@ const ingredientHandler = () => {
   $('#update-ingredient-form').on('submit', onUpdateIngredient)
   $('#delete-ingredient-form').on('submit', onDeleteIngredient)
   $('#crud-content').on('click', '.btn-add', onStartCreateIngredient)
-  $('#crud-content').on('click', '.recipe-ingredient', onEditIngredient)
+  $('#crud-content').on('click', '.ing-edit', onStartUpdateIngredient)
+  $('#crud-content').on('click', '.ing-del', onStartDeleteIngredient)
 }
 
 module.exports = {

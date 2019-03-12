@@ -12,11 +12,11 @@
     </p>
 
     {{#each recipe.ingredients_list as |ing|}}
-    <p class="recipe-ingredient" data-ing-id="{{ing.ingredient_id}}" data-meal-id="{{ing.meal_id}}">{{ing.amount}} {{ing.unit}} of {{ing.ingredient}}</p>
+    <p class="recipe-ingredient" data-ing-id="{{ing.ingredient_id}}" data-meal-id="{{ing.meal_id}}">{{ing.amount}} {{ing.unit}} of {{ing.ingredient}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ing-edit">Edit</span> <span class="ing-del">Delete</span></p>
     {{/each}}
 
     {{#each recipe.directions as |dir|}}
-    <p class="recipe-direction" data-id="{{dir.id}}">{{dir.step}}</p>
+    <p class="recipe-direction" data-id="{{dir.id}}">{{dir.step}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="dir-edit">Edit</span> <span class="dir-del">Delete</span></p>
     {{/each}}
 
     <button class="btn btn-add" data-id="{{recipe.id}}">Add Ingredient</button>

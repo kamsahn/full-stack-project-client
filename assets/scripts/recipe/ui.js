@@ -12,14 +12,18 @@ const createRecipeSuccess = (responseData) => {
 
 const getRecipesSuccess = (responseData) => {
   $('form').trigger('reset')
+  $('#intro-message').hide()
   const showRecipesHtml = showRecipesTemplate({ recipes: responseData.recipes })
   $('#crud-content').html(showRecipesHtml)
+  $('#intro-message').hide()
+  $('#get-recipes-target').hide()
 }
 
 const getRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
   const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
   $('#crud-content').html(indexRecipeHtml)
+  $('#get-recipes-target').show()
   store.mealCreateRecipeId = null
   store.updateRecId = null
   store.deleteRecId = null

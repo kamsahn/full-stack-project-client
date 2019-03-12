@@ -84,47 +84,117 @@
     <div id="crud-content"></div>
   </div>
 
-  <div id="recipe-div" class="resource-div">
-    <form id="create-recipe-form">
-      <input name="recipe[name]" type="text" placeholder="Enter recipe name">
-      <input name="recipe[description]" type="text" placeholder="Enter recipe description">
-      <input type="submit" value="Create Recipe">
-    </form>
-    <form id="get-recipes-form">
-      <input class="btn btn-primary" type="submit" value="Recipes">
-    </form>
-    <form id="update-recipe-form">
-      <input name="recipe[name]" type="text" placeholder="Updated recipe name here">
-      <input name="recipe[description]" type="text" placeholder="Updated recipe description here">
-      <input type="submit" value="Update Recipe">
-    </form>
+  <div id="intro-message" class="jumbotron">
+    <div id="var-jumbo-heading">
+      <h1 class="display-4">Welcome to your cookbook!</h1>
+    </div>
+    <p class="lead">This is a simple, easy to use web app for tracking your own recipes. You can name and describe your idea and add ingredients and directions to it. View a recipe to see more details.</p>
+    <hr class="my-4">
+    <div id="var-jumbo-message">
+      <p>Sign in to get cooking!</p>
+    </div>
   </div>
 
-  <div id="ingredient-div" class="resource-div">
-    <form id="create-ingredient-form">
-      <input name="ingredient[name]" type="text" placeholder="Enter ingredient name">
-      <input name="meal[unit]" type="text" placeholder="Enter meal unit">
-      <input name="meal[amount]" type="text" placeholder="Enter meal amount">
-      <input type="submit" value="Create Ingredient">
-    </form>
-    <form id="update-ingredient-form">
-      <input name="ingredient[name]" type="text" placeholder="Updated ingredient name here">
-      <input name="meal[unit]" type="text" placeholder="Enter meal unit">
-      <input name="meal[amount]" type="text" placeholder="Enter meal amount">
-      <input type="submit" value="Update Ingredient">
-    </form>
-  </div>
+  <!-- recipe forms start -->
 
-  <div id="direction-div" class="resource-div">
-    <form id="create-direction-form">
-      <input name="direction[step]" type="text" placeholder="Enter direction step">
-      <input type="submit" value="Create Direction">
-    </form>
-    <form id="update-direction-form">
-      <input name="direction[step]" type="text" placeholder="Updated direction step here">
-      <input type="submit" value="Update Direction">
-    </form>
-  </div>
+  <form class="my-2" id="create-recipe-form">
+    <div class="row">
+      <div class="col">
+        <input name="recipe[name]" type="text" class="form-control" placeholder="Enter recipe name">
+      </div>
+      <div class="col">
+        <input name="recipe[description]" type="text" class="form-control" placeholder="Enter recipe description">
+      </div>
+      <div class="col">
+        <input class="btn my-1" type="submit" value="Create Recipe">
+      </div>
+    </div>
+  </form>
+
+  <form id="get-recipes-target">
+    <input class="btn btn-primary btn-lg" type="submit" value="Recipes">
+  </form>
+
+  <form class="my-2" id="update-recipe-form">
+    <div class="row">
+      <div class="col">
+        <input name="recipe[name]" type="text" class="form-control" placeholder="Updated recipe name">
+      </div>
+      <div class="col">
+        <input name="recipe[description]" type="text" class="form-control" placeholder="Updated recipe description">
+      </div>
+      <div class="col">
+        <input class="btn my-1" type="submit" value="Update Recipe">
+      </div>
+    </div>
+  </form>
+
+  <!-- recipe forms end -->
+
+  <!-- ingredient forms start -->
+
+  <form class="my-2" id="create-ingredient-form">
+    <div class="row">
+      <div class="col">
+        <input name="ingredient[name]" type="text" class="form-control" placeholder="Enter ingredient name">
+      </div>
+      <div class="col">
+        <input name="meal[unit]" type="text" class="form-control" placeholder="Enter ingredient unit">
+      </div>
+      <div class="col">
+        <input name="meal[amount]" type="text" class="form-control" placeholder="Enter ingredient amount">
+      </div>
+      <div class="col">
+        <input class="btn my-1" type="submit" value="Create Ingredient">
+      </div>
+    </div>
+  </form>
+
+  <form class="my-2" id="update-ingredient-form">
+    <div class="row">
+      <div class="col">
+        <input name="ingredient[name]" type="text" class="form-control" placeholder="Updated ingredient name">
+      </div>
+      <div class="col">
+        <input name="meal[unit]" type="text" class="form-control" placeholder="Enter ingredient unit">
+      </div>
+      <div class="col">
+        <input name="meal[amount]" type="text" class="form-control" placeholder="Enter ingredient amount">
+      </div>
+      <div class="col">
+        <input class="btn my-1" type="submit" value="Create Ingredient">
+      </div>
+    </div>
+  </form>
+
+  <!-- ingredient forms end -->
+
+  <!-- direction forms start -->
+
+  <form class="my-2" id="create-direction-form">
+    <div class="row">
+      <div class="col">
+        <input name="direction[step]" type="text" class="form-control" placeholder="Enter step here">
+      </div>
+      <div class="col">
+        <input class="btn my-1" type="submit" value="Create Direction">
+      </div>
+    </div>
+  </form>
+
+  <form class="my-2" id="update-direction-form">
+    <div class="row">
+      <div class="col">
+        <input name="direction[step]" type="text" class="form-control" placeholder="Updated step here">
+      </div>
+      <div class="col">
+        <input class="btn my-1" type="submit" value="Update Direction">
+      </div>
+    </div>
+  </form>
+
+  <!-- direction forms end -->
+
 </body>
 
 </html>

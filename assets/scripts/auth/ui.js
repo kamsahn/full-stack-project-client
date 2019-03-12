@@ -1,17 +1,17 @@
 'use strict'
 
 const store = require('../store.js')
-
-const signUpSuccess = () => {
-  $('#user-message').text('Successfully signed up.')
-  setTimeout(() => {
-    $('#user-message').text('')
-  }, 5000)
-}
+const authMessageTemplate = require('../templates/auth-message.handlebars')
+const noAuthMessageTemplate = require('../templates/no-auth-message.handlebars')
+const authHeadingTemplate = require('../templates/auth-heading.handlebars')
+const noAuthHeadingTemplate = require('../templates/no-auth-heading.handlebars')
 
 const signInSuccess = (responseData) => {
-  $('#user-message').text('Successfully signed in.')
   $('form').trigger('reset')
+  const authMessageHtml = authMessageTemplate()
+  $('#var-jumbo-message').html(authMessageHtml)
+  const authHeadingHtml = authHeadingTemplate()
+  $('#var-jumbo-heading').html(authHeadingHtml)
 
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
@@ -22,9 +22,6 @@ const signInSuccess = (responseData) => {
   $('#get-recipes-form').show()
 
   store.user = responseData.user
-  setTimeout(() => {
-    $('#user-message').text('')
-  }, 5000)
 }
 
 const changePasswordSuccess = () => {
@@ -38,7 +35,6 @@ const changePasswordSuccess = () => {
 }
 
 const signOutSuccess = () => {
-  $('#user-message').text('Successfully signed out.')
   $('form').trigger('reset')
   $('#change-password-form').hide()
   $('#change-password-button').hide()
@@ -46,6 +42,7 @@ const signOutSuccess = () => {
 
   $('#create-recipe-form').hide()
   $('#get-recipes-form').hide()
+  $('#get-recipes-target').hide()
   $('#update-recipe-form').hide()
 
   $('#create-ingredient-form').hide()
@@ -56,11 +53,14 @@ const signOutSuccess = () => {
 
   $('#crud-content').empty()
 
+  $('#intro-message').show()
+  const noAuthMessageHtml = noAuthMessageTemplate()
+  $('#var-jumbo-message').html(noAuthMessageHtml)
+  const noAuthHeadingHtml = noAuthHeadingTemplate()
+  $('#var-jumbo-heading').html(noAuthHeadingHtml)
+
   $('#sign-in-form').show()
   store.user = null
-  setTimeout(() => {
-    $('#user-message').text('')
-  }, 5000)
 }
 
 const toSignIn = () => {
@@ -87,7 +87,6 @@ const failure = () => {
 }
 
 module.exports = {
-  signUpSuccess,
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,

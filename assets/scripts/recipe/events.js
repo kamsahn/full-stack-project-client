@@ -77,7 +77,8 @@ const onStartUpdateRecipe = (event) => {
 
 const recipeHandler = () => {
   $('#create-recipe-form').on('submit', onCreateRecipe)
-  $('#get-recipes-form').on('submit', onGetRecipes)
+  $('#var-jumbo-message').on('submit', '#get-recipes-form', onGetRecipes)
+  $('#get-recipes-target').on('submit', onGetRecipes)
   $('#update-recipe-form').on('submit', onUpdateRecipe)
   $('#crud-content').on('click', '.btn-create', onStartCreateRecipe)
   $('#crud-content').on('click', '.btn-get', onGetRecipe)

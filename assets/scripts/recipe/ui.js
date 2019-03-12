@@ -25,6 +25,9 @@ const getRecipeSuccess = (responseData) => {
   store.mealCreateRecipeId = null
   store.updateRecId = null
   store.deleteRecId = null
+  store.dirCreateRecipeId = null
+  store.dirUpdateRecId = null
+  store.dirDeleteRecId = null
 }
 
 const updateRecipeSuccess = (responseData) => {

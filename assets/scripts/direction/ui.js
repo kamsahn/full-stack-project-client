@@ -7,7 +7,6 @@ const createDirectionSuccess = (responseData) => {
   $('#user-message').text('Successfully created direction')
   $('#crud-content').empty()
   $('#create-direction-form').hide()
-  store.dirCreateRecipeId = null
 }
 
 const updateDirectionSuccess = (responseData) => {

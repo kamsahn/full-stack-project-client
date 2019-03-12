@@ -17,9 +17,9 @@ const signInSuccess = (responseData) => {
   $('#sign-in-form').hide()
   $('#change-password-form').show()
   $('#sign-out-form').show()
-  $('#recipe-div').show()
-  $('#update-recipe-form').hide()
-  $('#create-recipe-form').hide()
+  $('#create-recipe-form').show()
+  $('#get-recipe-form').show()
+  $('#update-recipe-form').show()
   store.user = responseData.user
   setTimeout(() => {
     $('#user-message').text('')
@@ -37,13 +37,21 @@ const changePasswordSuccess = () => {
 const signOutSuccess = () => {
   $('#user-message').text('Successfully signed out.')
   $('form').trigger('reset')
-  $('#recipe-content').text('')
-  $('#ingredient-content').text('')
-  $('#direction-content').text('')
   $('#change-password-form').hide()
   $('#sign-out-form').hide()
-  $('.resource-div').hide()
+
+  $('#create-recipe-form').hide()
+  $('#get-recipe-form').hide()
+  $('#update-recipe-form').hide()
+
+  $('#create-ingredient-form').hide()
+  $('#update-ingredient-form').hide()
+
+  $('#create-direction-form').hide()
+  $('#update-direction-form').hide()
+
   $('#crud-content').empty()
+
   $('#sign-up-form').show()
   $('#sign-in-form').show()
   store.user = null

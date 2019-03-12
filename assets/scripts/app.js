@@ -13,7 +13,9 @@ const directionEvents = require('./direction/events.js')
 const mealEvents = require('./meal/events.js')
 
 $(() => {
-  $('#recipe-div').hide()
+  $('#create-recipe-form').hide()
+  $('#get-recipe-form').hide()
+  $('#update-recipe-form').hide()
 
   $('#create-ingredient-form').hide()
   $('#update-ingredient-form').hide()

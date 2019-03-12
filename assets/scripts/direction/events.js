@@ -15,26 +15,27 @@ const onCreateDirection = (event) => {
     .catch(ui.failure)
 }
 
-const onGetDirections = (event) => {
-  event.preventDefault()
-  api.getDirections()
-    .then(ui.getDirectionsSuccess)
-    .catch(ui.failure)
-}
-
-const onGetDirection = (event) => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.getDirection(formData)
-    .then(ui.getDirectionSuccess)
-    .catch(ui.failure)
-}
+// const onGetDirections = (event) => {
+//   event.preventDefault()
+//   api.getDirections()
+//     .then(ui.getDirectionsSuccess)
+//     .catch(ui.failure)
+// }
+//
+// const onGetDirection = (event) => {
+//   event.preventDefault()
+//   const form = event.target
+//   const formData = getFormFields(form)
+//   api.getDirection(formData)
+//     .then(ui.getDirectionSuccess)
+//     .catch(ui.failure)
+// }
 
 const onUpdateDirection = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  formData.direction.id = store.dirUpdateDirId
   api.updateDirection(formData)
     .then(ui.updateDirectionSuccess)
     .catch(ui.failure)
@@ -42,9 +43,7 @@ const onUpdateDirection = (event) => {
 
 const onDeleteDirection = (event) => {
   event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.deleteDirection(formData)
+  api.deleteDirection(store.dirDeleteDirId)
     .then(ui.deleteDirectionSuccess)
     .catch(ui.failure)
 }
@@ -56,13 +55,29 @@ const onStartCreateDirection = (event) => {
   store.dirCreateRecipeId = id
 }
 
+const onStartUpdateDirection = (event) => {
+  event.preventDefault()
+  ui.showUpdateDirectionForm()
+  const dirId = $(event.target).parent().data('dir-id')
+  store.dirUpdateDirId = dirId
+}
+
+const onStartDeleteDirection = (event) => {
+  event.preventDefault()
+  const dirId = $(event.target).parent().data('dir-id')
+  store.dirDeleteDirId = dirId
+  onDeleteDirection(event)
+}
+
 const directionHandler = () => {
   $('#create-direction-form').on('submit', onCreateDirection)
-  $('#get-directions-form').on('submit', onGetDirections)
-  $('#get-direction-form').on('submit', onGetDirection)
+  // $('#get-directions-form').on('submit', onGetDirections)
+  // $('#get-direction-form').on('submit', onGetDirection)
   $('#update-direction-form').on('submit', onUpdateDirection)
   $('#delete-direction-form').on('submit', onDeleteDirection)
   $('#crud-content').on('click', '.btn-add-dir', onStartCreateDirection)
+  $('#crud-content').on('click', '.dir-edit', onStartUpdateDirection)
+  $('#crud-content').on('click', '.dir-del', onStartDeleteDirection)
 }
 
 module.exports = {

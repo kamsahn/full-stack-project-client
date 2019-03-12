@@ -45,9 +45,9 @@ const updateDirection = (formData) => {
   })
 }
 
-const deleteDirection = (formData) => {
+const deleteDirection = (id) => {
   return $.ajax({
-    url: config.apiUrl + `/directions/${formData.direction.id}`,
+    url: config.apiUrl + `/directions/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

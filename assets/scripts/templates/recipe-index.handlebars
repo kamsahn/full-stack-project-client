@@ -16,7 +16,7 @@
     {{/each}}
 
     {{#each recipe.directions as |dir|}}
-    <p class="recipe-direction" data-id="{{dir.id}}">{{dir.step}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="dir-edit">Edit</span> <span class="dir-del">Delete</span></p>
+    <p class="recipe-direction" data-dir-id="{{dir.id}}">{{dir.step}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="dir-edit">Edit</span> <span class="dir-del">Delete</span></p>
     {{/each}}
 
     <button class="btn btn-add-ing" data-id="{{recipe.id}}">Add Ingredient</button>

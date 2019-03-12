@@ -19,11 +19,9 @@ $(() => {
 
   $('#create-ingredient-form').hide()
   $('#update-ingredient-form').hide()
-  $('#delete-ingredient-form').hide()
 
   $('#create-direction-form').hide()
   $('#update-direction-form').hide()
-  $('#delete-direction-form').hide()
 
   $('#change-password-form').hide()
   $('#sign-out-form').hide()

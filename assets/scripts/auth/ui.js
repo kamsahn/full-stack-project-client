@@ -17,9 +17,7 @@ const signInSuccess = (responseData) => {
   $('#sign-in-form').hide()
   $('#change-password-form').show()
   $('#sign-out-form').show()
-  $('#create-recipe-form').show()
-  $('#get-recipe-form').show()
-  $('#update-recipe-form').show()
+  $('#get-recipes-form').show()
   store.user = responseData.user
   setTimeout(() => {
     $('#user-message').text('')

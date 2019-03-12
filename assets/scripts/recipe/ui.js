@@ -12,14 +12,6 @@ const createRecipeSuccess = (responseData) => {
   store.recipeCreate = responseData.recipe
 }
 
-const showCreateRecipeForm = () => {
-  $('#ingredient-div').show()
-}
-
-const showUpdateRecipeForm = () => {
-  $('#update-recipe-form').show()
-}
-
 const getRecipesSuccess = (responseData) => {
   $('form').trigger('reset')
   const showRecipesHtml = showRecipesTemplate({ recipes: responseData.recipes })
@@ -42,6 +34,14 @@ const updateRecipeSuccess = (responseData) => {
 const deleteRecipeSuccess = () => {
   $('form').trigger('reset')
   $('#crud-content').text('Recipe successfully deleted')
+}
+
+const showCreateRecipeForm = () => {
+  $('#create-recipe-form').show()
+}
+
+const showUpdateRecipeForm = () => {
+  $('#update-recipe-form').show()
 }
 
 const failure = () => {

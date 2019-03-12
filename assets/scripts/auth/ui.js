@@ -30,6 +30,8 @@ const signInSuccess = (responseData) => {
 const changePasswordSuccess = () => {
   $('#user-message').text('Successfully changed password.')
   $('form').trigger('reset')
+  $('#change-password-form').hide()
+  $('#change-password-button').show()
   setTimeout(() => {
     $('#user-message').text('')
   }, 5000)
@@ -71,6 +73,11 @@ const toSignUp = () => {
   $('#sign-up-form').show()
 }
 
+const showChangeForm = () => {
+  $('#change-password-button').hide()
+  $('#change-password-form').show()
+}
+
 const failure = () => {
   $('#user-message').text('There was an error.')
   $('form').trigger('reset')
@@ -86,5 +93,6 @@ module.exports = {
   signOutSuccess,
   toSignIn,
   toSignUp,
+  showChangeForm,
   failure
 }

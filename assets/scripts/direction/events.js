@@ -15,22 +15,6 @@ const onCreateDirection = (event) => {
     .catch(ui.failure)
 }
 
-// const onGetDirections = (event) => {
-//   event.preventDefault()
-//   api.getDirections()
-//     .then(ui.getDirectionsSuccess)
-//     .catch(ui.failure)
-// }
-//
-// const onGetDirection = (event) => {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.getDirection(formData)
-//     .then(ui.getDirectionSuccess)
-//     .catch(ui.failure)
-// }
-
 const onUpdateDirection = (event) => {
   event.preventDefault()
   const form = event.target
@@ -71,8 +55,6 @@ const onStartDeleteDirection = (event) => {
 
 const directionHandler = () => {
   $('#create-direction-form').on('submit', onCreateDirection)
-  // $('#get-directions-form').on('submit', onGetDirections)
-  // $('#get-direction-form').on('submit', onGetDirection)
   $('#update-direction-form').on('submit', onUpdateDirection)
   $('#delete-direction-form').on('submit', onDeleteDirection)
   $('#crud-content').on('click', '.btn-add-dir', onStartCreateDirection)

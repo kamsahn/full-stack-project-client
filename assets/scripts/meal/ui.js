@@ -9,31 +9,11 @@ const createMealSuccess = (responseData) => {
   store.mealIngredientId = null
 }
 
-const getMealsSuccess = (responseData) => {
-  $('form').trigger('reset')
-  $('#crud-content').text('Meals:')
-  responseData.meals.forEach(meal => {
-    const mealHtml = (`
-      <h3>${meal.id}: ${meal.name}</h3>
-      <p>${meal.description}</p>
-      <p></p>
-  `)
-    $('#crud-content').append(mealHtml)
-  })
-}
-
-const getMealSuccess = (responseData) => {
-  $('form').trigger('reset')
-}
-
 const updateMealSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Successfully updated ingredient')
-}
-
-const deleteMealSuccess = () => {
-  $('form').trigger('reset')
-  $('#crud-content').text('Meal successfully deleted')
+  store.ingUpdateIngId = null
+  store.mealUpdateMealId = null
 }
 
 const failure = () => {
@@ -44,9 +24,6 @@ const failure = () => {
 
 module.exports = {
   createMealSuccess,
-  getMealsSuccess,
-  getMealSuccess,
   updateMealSuccess,
-  deleteMealSuccess,
   failure
 }

@@ -10,24 +10,6 @@ const createIngredientSuccess = (responseData) => {
   store.mealIngredientId = responseData.ingredient.id
 }
 
-const getIngredientsSuccess = (responseData) => {
-  $('form').trigger('reset')
-  $('#crud-content').text('Ingredients:')
-  responseData.ingredients.forEach(ingredient => {
-    const ingredientHtml = (`
-      <p>${ingredient.id}: ${ingredient.name}</p>
-      <p></p>
-  `)
-    $('#crud-content').append(ingredientHtml)
-  })
-  store.mealIngredientId = responseData.ingredients.id
-}
-
-const getIngredientSuccess = (responseData) => {
-  $('form').trigger('reset')
-  $('#crud-content').text(responseData.ingredient.id + ': ' + responseData.ingredient.name)
-}
-
 const updateIngredientSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Updated ingredient')
@@ -35,7 +17,7 @@ const updateIngredientSuccess = (responseData) => {
   $('#delete-ingredient-form').hide()
   $('#crud-content').empty()
   store.ingUpdateIngId = null
-  store.mealUpdateMealeId = null
+  store.mealUpdateMealId = null
 }
 
 const deleteIngredientSuccess = () => {
@@ -60,8 +42,6 @@ const failure = () => {
 
 module.exports = {
   createIngredientSuccess,
-  getIngredientsSuccess,
-  getIngredientSuccess,
   updateIngredientSuccess,
   deleteIngredientSuccess,
   showCreateIngredientForm,

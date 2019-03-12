@@ -15,8 +15,6 @@ const mealEvents = require('./meal/events.js')
 $(() => {
   $('#recipe-div').hide()
 
-  // $('#meal-div').hide()
-
   $('#create-ingredient-form').hide()
   $('#update-ingredient-form').hide()
 

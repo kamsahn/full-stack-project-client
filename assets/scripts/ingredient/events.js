@@ -39,22 +39,6 @@ const onCreateIngredient = (event) => {
     .catch(ui.failure)
 }
 
-// const onGetIngredients = (event) => {
-//   event.preventDefault()
-//   api.getIngredients({user_id: store.user.id})
-//     .then(ui.getIngredientsSuccess)
-//     .catch(ui.failure)
-// }
-//
-// const onGetIngredient = (event) => {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.getIngredient(formData)
-//     .then(ui.getIngredientSuccess)
-//     .catch(ui.failure)
-// }
-
 const onUpdateIngredient = (event) => {
   event.preventDefault()
   const form = event.target
@@ -63,7 +47,7 @@ const onUpdateIngredient = (event) => {
   api.updateIngredient(formData)
     .then(ui.updateIngredientSuccess)
     .then(() => {
-      formData.meal.id = store.mealUpdateMealeId
+      formData.meal.id = store.mealUpdateMealId
       mealApi.updateMeal(formData)
         .then(mealUi.updateMealSuccess)
         .catch(ui.failure)
@@ -91,7 +75,7 @@ const onStartUpdateIngredient = (event) => {
   const ingId = $(event.target).parent().data('ing-id')
   store.ingUpdateIngId = ingId
   const mealId = $(event.target).parent().data('meal-id')
-  store.mealUpdateMealeId = mealId
+  store.mealUpdateMealId = mealId
 }
 
 const onStartDeleteIngredient = (event) => {
@@ -103,8 +87,6 @@ const onStartDeleteIngredient = (event) => {
 
 const ingredientHandler = () => {
   $('#create-ingredient-form').on('submit', onCreateIngredient)
-  // $('#get-ingredients-form').on('submit', onGetIngredients)
-  // $('#get-ingredient-form').on('submit', onGetIngredient)
   $('#update-ingredient-form').on('submit', onUpdateIngredient)
   $('#delete-ingredient-form').on('submit', onDeleteIngredient)
   $('#crud-content').on('click', '.btn-add-ing', onStartCreateIngredient)

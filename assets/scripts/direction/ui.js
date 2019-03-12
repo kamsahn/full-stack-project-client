@@ -10,24 +10,6 @@ const createDirectionSuccess = (responseData) => {
   store.dirCreateRecipeId = null
 }
 
-// const getDirectionsSuccess = (responseData) => {
-//   $('form').trigger('reset')
-//   $('#crud-content').text('Directions:')
-//   responseData.directions.forEach(direction => {
-//     const directionHtml = (`
-//       <p>${direction.id}: ${direction.step}</p>
-//       <p></p>
-//   `)
-//     $('#crud-content').append(directionHtml)
-//   })
-//   store.directions = responseData.directions
-// }
-//
-// const getDirectionSuccess = (responseData) => {
-//   $('form').trigger('reset')
-//   $('#crud-content').text(responseData.direction.id + ': ' + responseData.direction.step)
-// }
-
 const updateDirectionSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Successfully updated direction')
@@ -59,8 +41,6 @@ const failure = () => {
 
 module.exports = {
   createDirectionSuccess,
-  // getDirectionsSuccess,
-  // getDirectionSuccess,
   updateDirectionSuccess,
   deleteDirectionSuccess,
   showCreateDirectionForm,

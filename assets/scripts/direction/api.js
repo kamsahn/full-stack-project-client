@@ -14,26 +14,6 @@ const createDirection = (formData) => {
   })
 }
 
-const getDirections = (formData) => {
-  return $.ajax({
-    url: config.apiUrl + '/directions',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const getDirection = (formData) => {
-  return $.ajax({
-    url: config.apiUrl + `/directions/${formData.direction.id}`,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const updateDirection = (formData) => {
   return $.ajax({
     url: config.apiUrl + `/directions/${formData.direction.id}`,
@@ -57,8 +37,6 @@ const deleteDirection = (id) => {
 
 module.exports = {
   createDirection,
-  getDirections,
-  getDirection,
   updateDirection,
   deleteDirection
 }

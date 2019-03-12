@@ -12,6 +12,11 @@ const onCreateRecipe = (event) => {
   formData.recipe.user_id = store.user.id
   api.createRecipe(formData)
     .then(ui.createRecipeSuccess)
+    .then(() => {
+      api.getRecipes({user_id: store.user.id})
+        .then(ui.getRecipesSuccess)
+        .catch(ui.failure)
+    })
     .catch(ui.failure)
 }
 
@@ -37,6 +42,11 @@ const onUpdateRecipe = (event) => {
   formData.recipe.id = store.updateRecipeId
   api.updateRecipe(formData)
     .then(ui.updateRecipeSuccess)
+    .then(() => {
+      api.getRecipes({user_id: store.user.id})
+        .then(ui.getRecipesSuccess)
+        .catch(ui.failure)
+    })
     .catch(ui.failure)
 }
 
@@ -45,6 +55,11 @@ const onDeleteRecipe = (event) => {
   const id = $(event.target).data('id')
   api.deleteRecipe(id)
     .then(ui.deleteRecipeSuccess)
+    .then(() => {
+      api.getRecipes({user_id: store.user.id})
+        .then(ui.getRecipesSuccess)
+        .catch(ui.failure)
+    })
     .catch(ui.failure)
 }
 

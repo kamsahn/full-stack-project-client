@@ -4,7 +4,6 @@ const store = require('../store.js')
 
 const signUpSuccess = () => {
   $('#user-message').text('Successfully signed up.')
-  $('form').trigger('reset')
   setTimeout(() => {
     $('#user-message').text('')
   }, 5000)

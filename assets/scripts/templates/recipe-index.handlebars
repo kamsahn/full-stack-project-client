@@ -1,6 +1,11 @@
-  <section class="recipe">
-    <h2 data-id="{{recipe.id}}">
-      <small>Name:</small> {{recipe.name}}
+  <section data-rec-id="{{recipe.id}}" class="recipe">
+    <h2 class="recipe-name" data-id="{{recipe.id}}">
+      <small>Name:</small>
+      {{#if recipe.name}}
+        {{recipe.name}}
+      {{else}}
+        No name provided.
+      {{/if}}
     </h2>
     <p>
       <small>Description:</small>

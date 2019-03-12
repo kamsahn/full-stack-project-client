@@ -4,9 +4,7 @@ const store = require('../store.js')
 
 const createIngredientSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully created ingredient')
   $('#create-ingredient-form').hide()
-  $('#crud-content').empty()
   store.mealIngredientId = responseData.ingredient.id
 }
 
@@ -16,13 +14,10 @@ const updateIngredientSuccess = (responseData) => {
   $('#update-ingredient-form').hide()
   $('#delete-ingredient-form').hide()
   $('#crud-content').empty()
-  store.ingUpdateIngId = null
-  store.mealUpdateMealId = null
 }
 
 const deleteIngredientSuccess = () => {
   $('form').trigger('reset')
-  $('#crud-content').text('Ingredient successfully deleted')
   store.ingDeleteIngId = null
 }
 

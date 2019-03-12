@@ -3,9 +3,11 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store.js')
 const api = require('./api.js')
+const ui = require('./ui.js')
 const mealApi = require('../meal/api.js')
 const mealUi = require('../meal/ui.js')
-const ui = require('./ui.js')
+const recipeApi = require('../recipe/api.js')
+const recipeUi = require('../recipe/ui.js')
 
 // accesses all ingredients currently in the store
 // does not have the ingredient in question
@@ -34,6 +36,11 @@ const onCreateIngredient = (event) => {
       formData.meal.ingredient_id = store.mealIngredientId
       mealApi.createMeal(formData)
         .then(mealUi.createMealSuccess)
+        .then(() => {
+          recipeApi.getRecipe(store.mealCreateRecipeId)
+            .then(recipeUi.getRecipeSuccess)
+            .catch(ui.failure)
+        })
         .catch(ui.failure)
     })
     .catch(ui.failure)
@@ -50,6 +57,11 @@ const onUpdateIngredient = (event) => {
       formData.meal.id = store.mealUpdateMealId
       mealApi.updateMeal(formData)
         .then(mealUi.updateMealSuccess)
+        .then(() => {
+          recipeApi.getRecipe(store.updateRecId)
+            .then(recipeUi.getRecipeSuccess)
+            .catch(ui.failure)
+        })
         .catch(ui.failure)
     })
     .catch(ui.failure)
@@ -59,6 +71,11 @@ const onDeleteIngredient = (event) => {
   event.preventDefault()
   api.deleteIngredient(store.ingDeleteIngId)
     .then(ui.deleteIngredientSuccess)
+    .then(() => {
+      recipeApi.getRecipe(store.deleteRecId)
+        .then(recipeUi.getRecipeSuccess)
+        .catch(ui.failure)
+    })
     .catch(ui.failure)
 }
 
@@ -76,12 +93,17 @@ const onStartUpdateIngredient = (event) => {
   store.ingUpdateIngId = ingId
   const mealId = $(event.target).parent().data('meal-id')
   store.mealUpdateMealId = mealId
+  const recId = $(event.target).parent().parent().data('rec-id')
+  store.updateRecId = recId
+  console.log(recId)
 }
 
 const onStartDeleteIngredient = (event) => {
   event.preventDefault()
   const ingId = $(event.target).parent().data('ing-id')
   store.ingDeleteIngId = ingId
+  const recId = $(event.target).parent().parent().data('rec-id')
+  store.deleteRecId = recId
   onDeleteIngredient(event)
 }
 

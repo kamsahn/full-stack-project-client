@@ -22,6 +22,9 @@ const getRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
   const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
   $('#crud-content').html(indexRecipeHtml)
+  store.mealCreateRecipeId = null
+  store.updateRecId = null
+  store.deleteRecId = null
 }
 
 const updateRecipeSuccess = (responseData) => {

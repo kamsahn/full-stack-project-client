@@ -80,7 +80,10 @@
 
   <p id="user-message"></p>
 
-  <p id="crud-content"></p>
+  <div id="content" class="content">
+    <div id="crud-content"></div>
+  </div>
+
   <div id="recipe-div" class="resource-div">
     <form id="create-recipe-form">
       <input name="recipe[name]" type="text" placeholder="Enter recipe name">
@@ -88,7 +91,7 @@
       <input type="submit" value="Create Recipe">
     </form>
     <form id="get-recipes-form">
-      <input type="submit" value="Recipes">
+      <input class="btn btn-primary" type="submit" value="Recipes">
     </form>
     <form id="update-recipe-form">
       <input name="recipe[name]" type="text" placeholder="Updated recipe name here">

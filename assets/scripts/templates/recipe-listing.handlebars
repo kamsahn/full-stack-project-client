@@ -1,24 +1,46 @@
 {{#each recipes as |recipe|}}
 
-  <section class="recipe">
-    <h4 data-id="{{recipe.id}}">
-      <small>Name:</small> {{recipe.name}}
-    </h4>
-    <p>
-      <small>Description:</small>
+
+<div class=" recipe card" style="width: 18rem;">
+  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+  <div data-id="{{recipe.id}}" class="card-body">
+    <h5 class="card-title">{{recipe.name}}</h5>
+    <p class="card-text">
       {{#if recipe.description}}
-        {{recipe.description}}
+      {{recipe.description}}
       {{else}}
-        No description provided.
+      No description provided.
       {{/if}}
     </p>
 
-    <button class="btn btn-get" data-id="{{recipe.id}}">Get</button>
-    <button class="btn btn-update" data-id="{{recipe.id}}">Update</button>
-    <button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
+    <div class="btn-wrapper">
+      <button class="btn btn-get" data-id="{{recipe.id}}">View</button>
+      <button class="btn btn-update" data-id="{{recipe.id}}">Update</button>
+      <button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
+    </div>
 
-  </section>
+  </div>
+</div>
 
 {{/each}}
 
 <button class="btn btn-create">Create Recipe</button>
+
+<!-- <section>
+<h4 data-id="{{recipe.id}}">
+<small>Name:</small> {{recipe.name}}
+</h4>
+<p>
+<small>Description:</small>
+{{#if recipe.description}}
+{{recipe.description}}
+{{else}}
+No description provided.
+{{/if}}
+</p>
+
+<button class="btn btn-get" data-id="{{recipe.id}}">Get</button>
+<button class="btn btn-update" data-id="{{recipe.id}}">Update</button>
+<button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
+
+</section> -->

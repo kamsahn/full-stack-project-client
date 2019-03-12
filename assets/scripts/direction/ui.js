@@ -4,23 +4,17 @@ const store = require('../store.js')
 
 const createDirectionSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully created direction')
-  $('#crud-content').empty()
   $('#create-direction-form').hide()
 }
 
 const updateDirectionSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully updated direction')
-  $('#crud-content').empty()
   $('#update-direction-form').hide()
   store.dirUpdateDirId = null
 }
 
 const deleteDirectionSuccess = () => {
   $('form').trigger('reset')
-  $('#user-message').text('Direction successfully deleted')
-  $('#crud-content').empty()
   store.dirDeleteDirId = null
 }
 

@@ -6,9 +6,7 @@ const indexRecipeTemplate = require('../templates/recipe-index.handlebars')
 
 const createRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully created recipe')
   $('#create-recipe-form').hide()
-  $('#crud-content').empty()
   store.recipeCreate = responseData.recipe
 }
 
@@ -32,14 +30,11 @@ const getRecipeSuccess = (responseData) => {
 
 const updateRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully updated recipe')
   $('#update-recipe-form').hide()
-  $('#crud-content').empty()
 }
 
 const deleteRecipeSuccess = () => {
   $('form').trigger('reset')
-  $('#crud-content').text('Recipe successfully deleted')
 }
 
 const showCreateRecipeForm = () => {

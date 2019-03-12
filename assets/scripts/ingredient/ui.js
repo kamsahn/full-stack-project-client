@@ -10,10 +10,7 @@ const createIngredientSuccess = (responseData) => {
 
 const updateIngredientSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Updated ingredient')
   $('#update-ingredient-form').hide()
-  $('#delete-ingredient-form').hide()
-  $('#crud-content').empty()
 }
 
 const deleteIngredientSuccess = () => {

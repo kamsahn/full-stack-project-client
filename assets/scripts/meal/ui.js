@@ -4,13 +4,11 @@ const store = require('../store.js')
 
 const createMealSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully added an ingredient')
   store.mealIngredientId = null
 }
 
 const updateMealSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully updated ingredient')
   store.ingUpdateIngId = null
   store.mealUpdateMealId = null
 }

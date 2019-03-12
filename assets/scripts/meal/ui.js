@@ -2,9 +2,7 @@
 
 const createMealSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Successfully created meal')
-  $('#meal-div').hide()
-  $('#direction-div').show()
+  $('#user-message').text('Successfully added an ingredient')
 }
 
 const getMealsSuccess = (responseData) => {
@@ -26,7 +24,7 @@ const getMealSuccess = (responseData) => {
 
 const updateMealSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('#user-message').text('Updated meal')
+  $('#user-message').text('Successfully updated ingredient')
 }
 
 const deleteMealSuccess = () => {

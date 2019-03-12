@@ -10,9 +10,6 @@ const createRecipeSuccess = (responseData) => {
   $('#create-recipe-form').hide()
   $('#crud-content').empty()
   store.recipeCreate = responseData.recipe
-  // use store.recipeCreate.id to access this created recipe's id
-  // $('#recipe-div').hide()
-  // $('#ingredient-div').show()
 }
 
 const showCreateRecipeForm = () => {
@@ -40,8 +37,6 @@ const updateRecipeSuccess = (responseData) => {
   $('#user-message').text('Successfully updated recipe')
   $('#update-recipe-form').hide()
   $('#crud-content').empty()
-  // store.recipeUpdate = responseData.recipe
-  // // use store.recipeUpdate.id to access this updated recipe's id
 }
 
 const deleteRecipeSuccess = () => {

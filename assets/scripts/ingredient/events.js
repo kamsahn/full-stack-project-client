@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store.js')
 const api = require('./api.js')
 const mealApi = require('../meal/api.js')
+const mealUi = require('../meal/ui.js')
 const ui = require('./ui.js')
 
 // accesses all ingredients currently in the store
@@ -26,54 +27,31 @@ const onCreateIngredient = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  formData.meal.recipe_id = store.createIngRecipeId
   api.createIngredient(formData)
     .then(ui.createIngredientSuccess)
     .then(() => {
-      formData.meal.ingredient_id = store.ingredientCreate.id
+      formData.meal.recipe_id = store.mealCreateRecipeId
+      formData.meal.ingredient_id = store.mealIngredientId
       mealApi.createMeal(formData)
+        .then(mealUi.createMealSuccess)
+        .catch(ui.failure)
     })
     .catch(ui.failure)
 }
 
-const onGetIngredients = (event) => {
-  event.preventDefault()
-  api.getIngredients({user_id: store.user.id})
-    .then(ui.getIngredientsSuccess)
-    .catch(ui.failure)
-}
-
-const onGetIngredient = (event) => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.getIngredient(formData)
-    .then(ui.getIngredientSuccess)
-    .catch(ui.failure)
-}
-
-// const onGetOrCreateIngredient = (event) => {
+// const onGetIngredients = (event) => {
 //   event.preventDefault()
-//   onGetIngredients(event)
+//   api.getIngredients({user_id: store.user.id})
 //     .then(ui.getIngredientsSuccess)
-//     .then(() => {
-//       const form = event.target
-//       const formData = getFormFields(form)
-//       console.log('2:', store.ingredients)
-//       const check = ingredientSearch(formData.ingredient.name, store.ingredients)
-//       if (check) {
-//         api.getIngredient({ingredient_id: check.ingredient_id})
-//           .then(ui.getIngredientSuccess)
-//           .catch(ui.failure)
-//       } else {
-//         api.createIngredient(formData)
-//           .then(ui.createIngredientSuccess)
-//           .catch(ui.failure)
-//       }
-//     })
-//     .then(() => {
-//       $('form').trigger('reset')
-//     })
+//     .catch(ui.failure)
+// }
+//
+// const onGetIngredient = (event) => {
+//   event.preventDefault()
+//   const form = event.target
+//   const formData = getFormFields(form)
+//   api.getIngredient(formData)
+//     .then(ui.getIngredientSuccess)
 //     .catch(ui.failure)
 // }
 
@@ -81,16 +59,21 @@ const onUpdateIngredient = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  formData.ingredient.id = store.ingUpdateIngId
   api.updateIngredient(formData)
     .then(ui.updateIngredientSuccess)
+    .then(() => {
+      formData.meal.id = store.mealUpdateMealeId
+      mealApi.updateMeal(formData)
+        .then(mealUi.updateMealSuccess)
+        .catch(ui.failure)
+    })
     .catch(ui.failure)
 }
 
 const onDeleteIngredient = (event) => {
   event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.deleteIngredient(formData)
+  api.deleteIngredient(store.ingUpdateIngId)
     .then(ui.deleteIngredientSuccess)
     .catch(ui.failure)
 }
@@ -99,16 +82,26 @@ const onStartCreateIngredient = (event) => {
   event.preventDefault()
   ui.showCreateIngredientForm()
   const id = $(event.target).data('id')
-  store.createIngRecipeId = id
+  store.mealCreateRecipeId = id
+}
+
+const onEditIngredient = (event) => {
+  event.preventDefault()
+  ui.showEditForms()
+  const ingId = $(event.target).data('ing-id')
+  store.ingUpdateIngId = ingId
+  const mealId = $(event.target).data('meal-id')
+  store.mealUpdateMealeId = mealId
 }
 
 const ingredientHandler = () => {
   $('#create-ingredient-form').on('submit', onCreateIngredient)
-  $('#get-ingredients-form').on('submit', onGetIngredients)
-  $('#get-ingredient-form').on('submit', onGetIngredient)
+  // $('#get-ingredients-form').on('submit', onGetIngredients)
+  // $('#get-ingredient-form').on('submit', onGetIngredient)
   $('#update-ingredient-form').on('submit', onUpdateIngredient)
   $('#delete-ingredient-form').on('submit', onDeleteIngredient)
   $('#crud-content').on('click', '.btn-add', onStartCreateIngredient)
+  $('#crud-content').on('click', '.recipe-ingredient', onEditIngredient)
 }
 
 module.exports = {

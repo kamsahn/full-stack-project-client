@@ -5,7 +5,9 @@ const store = require('../store.js')
 const createIngredientSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Successfully created ingredient')
-  store.ingredientCreate = responseData.ingredient
+  $('#create-ingredient-form').hide()
+  $('#crud-content').empty()
+  store.mealIngredientId = responseData.ingredient.id
 }
 
 const getIngredientsSuccess = (responseData) => {
@@ -18,7 +20,7 @@ const getIngredientsSuccess = (responseData) => {
   `)
     $('#crud-content').append(ingredientHtml)
   })
-  store.ingredients = responseData.ingredients
+  store.mealIngredientId = responseData.ingredients.id
 }
 
 const getIngredientSuccess = (responseData) => {
@@ -29,7 +31,9 @@ const getIngredientSuccess = (responseData) => {
 const updateIngredientSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Updated ingredient')
-  $('#crud-content').text(responseData.ingredient.id + ': ' + responseData.ingredient.name)
+  $('#update-ingredient-form').hide()
+  $('#delete-ingredient-form').hide()
+  $('#crud-content').empty()
 }
 
 const deleteIngredientSuccess = () => {
@@ -38,7 +42,12 @@ const deleteIngredientSuccess = () => {
 }
 
 const showCreateIngredientForm = () => {
-  $('#ingredient-div').show()
+  $('#create-ingredient-form').show()
+}
+
+const showEditForms = () => {
+  $('#update-ingredient-form').show()
+  $('#delete-ingredient-form').show()
 }
 
 const failure = () => {
@@ -54,5 +63,6 @@ module.exports = {
   updateIngredientSuccess,
   deleteIngredientSuccess,
   showCreateIngredientForm,
+  showEditForms,
   failure
 }

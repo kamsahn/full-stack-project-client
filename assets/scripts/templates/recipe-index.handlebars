@@ -12,11 +12,11 @@
     </p>
 
     {{#each recipe.ingredients_list as |ing|}}
-    <p>{{ing.amount}} {{ing.unit}} of {{ing.ingredient}}</p>
+    <p class="recipe-ingredient" data-ing-id="{{ing.ingredient_id}}" data-meal-id="{{ing.meal_id}}">{{ing.amount}} {{ing.unit}} of {{ing.ingredient}}</p>
     {{/each}}
 
     {{#each recipe.directions as |dir|}}
-    <p>{{dir.step}}</p>
+    <p class="recipe-direction" data-id="{{dir.id}}">{{dir.step}}</p>
     {{/each}}
 
     <button class="btn btn-add" data-id="{{recipe.id}}">Add Ingredient</button>

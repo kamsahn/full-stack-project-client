@@ -14,11 +14,18 @@ const mealEvents = require('./meal/events.js')
 
 $(() => {
   $('#recipe-div').hide()
-  $('#meal-div').hide()
-  $('#ingredient-div').hide()
+
+  // $('#meal-div').hide()
+
+  $('#create-ingredient-form').hide()
+  $('#update-ingredient-form').hide()
+  $('#delete-ingredient-form').hide()
+
   $('#direction-div').hide()
+
   $('#change-password-form').hide()
   $('#sign-out-form').hide()
+
   authEvents.authHandler()
   recipeEvents.recipeHandler()
   ingredientEvents.ingredientHandler()

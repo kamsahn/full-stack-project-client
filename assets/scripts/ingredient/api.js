@@ -45,9 +45,9 @@ const updateIngredient = (formData) => {
   })
 }
 
-const deleteIngredient = (formData) => {
+const deleteIngredient = (id) => {
   return $.ajax({
-    url: config.apiUrl + `/ingredients/${formData.ingredient.id}`,
+    url: config.apiUrl + `/ingredients/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -5,9 +5,9 @@ const store = require('../store.js')
 const createDirectionSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#user-message').text('Successfully created direction')
-  $('#crud-content').text(responseData.direction.id + ': ' + responseData.direction.step)
-  $('#direction-div').hide()
-  $('#recipe-div').show()
+  $('#crud-content').empty()
+  $('#create-direction-form').hide()
+  store.dirCreateRecipeId = null
 }
 
 const getDirectionsSuccess = (responseData) => {
@@ -39,6 +39,10 @@ const deleteDirectionSuccess = () => {
   $('#crud-content').text('Direction successfully deleted')
 }
 
+const showCreateDirectionForm = () => {
+  $('#create-direction-form').show()
+}
+
 const failure = () => {
   $('#crud-content').text('')
   $('#user-message').text('Something went wrong.')
@@ -51,5 +55,6 @@ module.exports = {
   getDirectionSuccess,
   updateDirectionSuccess,
   deleteDirectionSuccess,
+  showCreateDirectionForm,
   failure
 }

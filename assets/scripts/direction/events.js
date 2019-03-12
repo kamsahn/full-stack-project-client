@@ -9,7 +9,7 @@ const onCreateDirection = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  formData.direction.recipe_id = store.recipeCreate.id
+  formData.direction.recipe_id = store.dirCreateRecipeId
   api.createDirection(formData)
     .then(ui.createDirectionSuccess)
     .catch(ui.failure)
@@ -49,12 +49,20 @@ const onDeleteDirection = (event) => {
     .catch(ui.failure)
 }
 
+const onStartCreateDirection = (event) => {
+  event.preventDefault()
+  ui.showCreateDirectionForm()
+  const id = $(event.target).data('id')
+  store.dirCreateRecipeId = id
+}
+
 const directionHandler = () => {
   $('#create-direction-form').on('submit', onCreateDirection)
   $('#get-directions-form').on('submit', onGetDirections)
   $('#get-direction-form').on('submit', onGetDirection)
   $('#update-direction-form').on('submit', onUpdateDirection)
   $('#delete-direction-form').on('submit', onDeleteDirection)
+  $('#crud-content').on('click', '.btn-add-dir', onStartCreateDirection)
 }
 
 module.exports = {

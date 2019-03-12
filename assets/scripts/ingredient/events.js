@@ -107,7 +107,7 @@ const ingredientHandler = () => {
   // $('#get-ingredient-form').on('submit', onGetIngredient)
   $('#update-ingredient-form').on('submit', onUpdateIngredient)
   $('#delete-ingredient-form').on('submit', onDeleteIngredient)
-  $('#crud-content').on('click', '.btn-add', onStartCreateIngredient)
+  $('#crud-content').on('click', '.btn-add-ing', onStartCreateIngredient)
   $('#crud-content').on('click', '.ing-edit', onStartUpdateIngredient)
   $('#crud-content').on('click', '.ing-del', onStartDeleteIngredient)
 }

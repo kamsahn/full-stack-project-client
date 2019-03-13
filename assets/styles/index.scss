@@ -5,7 +5,7 @@
   justify-content: space-evenly;
 }
 
-.card-body {
+.card-body-list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,10 +52,6 @@
     color: blue;
     text-decoration: underline;
   }
-}
-
-.list-group-item {
-  height: 2.5em;
 }
 
 .list-title {

@@ -25,9 +25,9 @@
       {{ing.amount}} {{ing.unit}} of {{ing.ingredient}}
     </li>
     <div class="card-footer text-muted" data-ing-id="{{ing.ingredient_id}}" data-meal-id="{{ing.meal_id}}" style="height: .5em">
-      <a class="list-a ing-edit">Edit</a>
+      <p class="list-p ing-edit">Edit</p>
       &nbsp;
-      <a class="list-a ing-del">Delete</a>
+      <p class="list-p ing-del">Delete</p>
     </div>
     {{/each}}
 
@@ -39,9 +39,9 @@
     {{#each recipe.directions as |dir|}}
     <li class="list-group-item recipe-direction">{{dir.step}}</li>
     <div class="card-footer text-muted" data-dir-id="{{dir.id}}" style="height: .5em">
-      <a class="list-a dir-edit">Edit</a>
+      <p class="list-p dir-edit">Edit</p>
       &nbsp;
-      <a class="list-a dir-del">Delete</a>
+      <p class="list-p dir-del">Delete</p>
     </div>
     {{/each}}
 

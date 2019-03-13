@@ -13,8 +13,11 @@ const signInSuccess = (responseData) => {
   const authHeadingHtml = authHeadingTemplate()
   $('#var-jumbo-heading').html(authHeadingHtml)
 
-  $('#sign-up-form').hide()
-  $('#sign-in-form').hide()
+  $('#sign-up-modal').modal('hide')
+  $('#sign-in-modal').modal('hide')
+
+  $('#sign-up-btn').hide()
+  $('#sign-in-btn').hide()
 
   $('#change-password-button').show()
   $('#sign-out-form').show()
@@ -62,7 +65,9 @@ const signOutSuccess = () => {
   const noAuthHeadingHtml = noAuthHeadingTemplate()
   $('#var-jumbo-heading').html(noAuthHeadingHtml)
 
-  $('#sign-in-form').show()
+  $('#sign-in-btn').show()
+  $('#sign-up-btn').show()
+
   store.user = null
 }
 
@@ -83,6 +88,7 @@ const showChangeForm = () => {
 
 const failure = () => {
   $('#user-message').text('There was an error.')
+  $('.modal').modal('hide')
   $('form').trigger('reset')
   setTimeout(() => {
     $('#user-message').text('')

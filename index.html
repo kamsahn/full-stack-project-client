@@ -102,25 +102,39 @@
 
     <!-- sign up modal end -->
 
-    <!-- change password button start -->
-    <form id="change-password-button">
-      <input type="submit" class="btn btn-primary" value="Change Password">
-    </form>
-    <!-- change password button end -->
+    <!-- Button trigger modal -->
+    <button type="button" id="change-password-btn" class="btn btn-primary" data-toggle="modal" data-target="#change-password-modal">
+      Change Password
+    </button>
 
-    <!-- change password form start -->
-    <form id="change-password-form" class="form-inline">
-      <div class="form-group">
-        <label>Old Password</label>
-        <input name="passwords[old]" type="password" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
+    <!-- Modal -->
+    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- change password form start -->
+            <form id="change-password-form" class="form-inline">
+              <div class="form-group">
+                <label>Old Password</label>
+                <input name="passwords[old]" type="password" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input name="passwords[new]" type="password" class="mx-1 form-control" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Change</button>
+            </form>
+            <!-- change password form end -->
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>New Password</label>
-        <input name="passwords[new]" type="password" class="mx-1 form-control" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary">Change</button>
-    </form>
-    <!-- change password form end -->
+    </div>
 
     <!-- sign out form start -->
     <form id="sign-out-form">

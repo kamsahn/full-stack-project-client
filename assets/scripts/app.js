@@ -23,8 +23,7 @@ $(() => {
   $('#create-direction-form').hide()
   $('#update-direction-form').hide()
 
-  $('#change-password-form').hide()
-  $('#change-password-button').hide()
+  $('#change-password-btn').hide()
   $('#sign-out-form').hide()
 
   authEvents.authHandler()

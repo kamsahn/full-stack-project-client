@@ -19,7 +19,7 @@ const signInSuccess = (responseData) => {
   $('#sign-up-btn').hide()
   $('#sign-in-btn').hide()
 
-  $('#change-password-button').show()
+  $('#change-password-btn').show()
   $('#sign-out-form').show()
 
   $('#get-recipes-form').show()
@@ -30,8 +30,7 @@ const signInSuccess = (responseData) => {
 const changePasswordSuccess = () => {
   $('#user-message').text('Successfully changed password.')
   $('form').trigger('reset')
-  $('#change-password-form').hide()
-  $('#change-password-button').show()
+  $('#change-password-modal').modal('hide')
   setTimeout(() => {
     $('#user-message').text('')
   }, 5000)
@@ -40,8 +39,7 @@ const changePasswordSuccess = () => {
 const signOutSuccess = () => {
   $('form').trigger('reset')
 
-  $('#change-password-form').hide()
-  $('#change-password-button').hide()
+  $('#change-password-btn').hide()
   $('#sign-out-form').hide()
 
   $('#create-recipe-form').hide()
@@ -71,21 +69,6 @@ const signOutSuccess = () => {
   store.user = null
 }
 
-const toSignIn = () => {
-  $('#sign-up-form').hide()
-  $('#sign-in-form').show()
-}
-
-const toSignUp = () => {
-  $('#sign-in-form').hide()
-  $('#sign-up-form').show()
-}
-
-const showChangeForm = () => {
-  $('#change-password-button').hide()
-  $('#change-password-form').show()
-}
-
 const failure = () => {
   $('#user-message').text('There was an error.')
   $('.modal').modal('hide')
@@ -95,12 +78,15 @@ const failure = () => {
   }, 5000)
 }
 
+$(document).ready(function () {
+  $('.modal').on('hidden.bs.modal', function () {
+    $('form').trigger('reset')
+  })
+})
+
 module.exports = {
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
-  toSignIn,
-  toSignUp,
-  showChangeForm,
   failure
 }

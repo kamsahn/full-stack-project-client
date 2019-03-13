@@ -27,7 +27,7 @@ const getRecipesSuccess = (responseData) => {
   $('#create-direction-form').hide()
   $('#update-direction-form').hide()
 
-  $('#crud-content').css('flex-direction', 'row')
+  $('#crud-content-indv').empty()
   const showRecipesHtml = showRecipesTemplate({ recipes: responseData.recipes })
   $('#crud-content').html(showRecipesHtml)
   const showRecipesFooterHtml = showRecipesFooterTemplate()
@@ -55,9 +55,9 @@ const getRecipeSuccess = (responseData) => {
   $('#create-direction-form').hide()
   $('#update-direction-form').hide()
 
-  $('#crud-content').css('flex-direction', 'column')
+  $('#crud-content').empty()
   const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
-  $('#crud-content').html(indexRecipeHtml)
+  $('#crud-content-indv').html(indexRecipeHtml)
   $('#get-recipes-target').show()
 }
 

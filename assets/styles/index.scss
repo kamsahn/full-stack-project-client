@@ -30,6 +30,7 @@
 
 .crud-content {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -69,8 +70,29 @@ main {
   margin-bottom: 10px;
 }
 
+.recipe {
+  height: 16rem;
+  width: 18rem;
+}
+
+.recipe-indv {
+  width: 24rem;
+}
+
 @media (max-width: 991px) {
   .crud-content {
     flex-direction: column;
+  }
+
+  .recipe {
+    margin: 1rem 20%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 769px) {
+  .recipe-indv {
+    margin: 1rem 20%;
+    width: 50%;
   }
 }

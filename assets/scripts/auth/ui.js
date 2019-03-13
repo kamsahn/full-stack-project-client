@@ -53,6 +53,7 @@ const signOutSuccess = () => {
   $('#update-direction-form').hide()
 
   $('#crud-content').empty()
+  $('#crud-content-indv').empty()
   $('#crud-content-footer').empty()
 
   $('#intro-message').show()

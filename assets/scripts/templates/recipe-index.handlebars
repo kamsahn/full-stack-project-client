@@ -22,7 +22,22 @@
 
     {{#each recipe.ingredients_list as |ing|}}
     <li class="list-group-item recipe-ingredient">
-      {{ing.amount}} {{ing.unit}} of {{ing.ingredient}}
+      {{#if ing.amount}}
+        {{ing.amount}}
+      {{else}}
+        N/A
+      {{/if}}
+      {{#if ing.unit}}
+        {{ing.unit}}
+      {{else}}
+        N/A
+      {{/if}}
+      of
+      {{#if ing.ingredient}}
+        {{ing.ingredient}}
+      {{else}}
+        N/A
+      {{/if}}
     </li>
     <div class="card-footer text-muted" data-ing-id="{{ing.ingredient_id}}" data-meal-id="{{ing.meal_id}}" style="height: .5em">
       <p class="list-p ing-edit">Edit</p>
@@ -37,7 +52,13 @@
   <ul class="direction-list list-group list-group-flush" data-rec-id="{{recipe.id}}">
 
     {{#each recipe.directions as |dir|}}
-    <li class="list-group-item recipe-direction">{{dir.step}}</li>
+    <li class="list-group-item recipe-direction">
+      {{#if dir.step}}
+        {{dir.step}}
+      {{else}}
+        N/A
+      {{/if}}
+    </li>
     <div class="card-footer text-muted" data-dir-id="{{dir.id}}" style="height: .5em">
       <p class="list-p dir-edit">Edit</p>
       &nbsp;

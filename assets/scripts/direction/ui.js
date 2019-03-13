@@ -19,10 +19,18 @@ const deleteDirectionSuccess = () => {
 }
 
 const showCreateDirectionForm = () => {
+  $('#create-ingredient-form').hide()
+  $('#update-ingredient-form').hide()
+  $('#update-direction-form').hide()
+
   $('#create-direction-form').show()
 }
 
 const showUpdateDirectionForm = () => {
+  $('#create-ingredient-form').hide()
+  $('#update-ingredient-form').hide()
+  $('#create-direction-form').hide()
+
   $('#update-direction-form').show()
 }
 

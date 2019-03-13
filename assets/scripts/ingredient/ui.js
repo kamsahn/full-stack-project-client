@@ -19,10 +19,18 @@ const deleteIngredientSuccess = () => {
 }
 
 const showCreateIngredientForm = () => {
+  $('#create-direction-form').hide()
+  $('#update-direction-form').hide()
+  $('update-ingredient-form').hide()
+
   $('#create-ingredient-form').show()
 }
 
 const showUpdateForms = () => {
+  $('#create-direction-form').hide()
+  $('#update-direction-form').hide()
+  $('create-ingredient-form').hide()
+
   $('#update-ingredient-form').show()
 }
 

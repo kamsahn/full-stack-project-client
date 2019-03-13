@@ -18,12 +18,29 @@
     <a class="navbar-brand">Recipe Tracker</a>
     <p id="user-message" style="color: red;"></p>
 
-    <!-- Sign in modal start -->
-    <button type="button" id="sign-in-btn" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal">
-      Sign In
-    </button>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Cook
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-    <!-- Modal -->
+        <button type="button" id="sign-in-btn" class="dropdown-item btn-custom" data-toggle="modal" data-target="#sign-in-modal">
+          Sign In
+        </button>
+        <button type="button" id="sign-up-btn" class="dropdown-item btn-custom" data-toggle="modal" data-target="#sign-up-modal">
+          Sign Up
+        </button>
+        <button type="button" id="change-password-btn" class="dropdown-item btn-custom" data-toggle="modal" data-target="#change-password-modal">
+          Change Password
+        </button>
+        <form id="sign-out-form">
+          <input type="submit" class="dropdown-item btn-custom" value="Sign Out">
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Sign in modal start -->
     <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -33,11 +50,9 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-
-            <!-- sign in form start -->
-
-            <form id="sign-in-form" class="form-inline">
+          <!-- sign in form start -->
+          <form id="sign-in-form" class="modal-body form-inline">
+            <div class="modal-body modal-body-inner">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input name="credentials[email]" type="email" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
@@ -46,24 +61,18 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input name="credentials[password]" type="password" class="mx-1 form-control" placeholder="Password">
               </div>
+            </div>
+            <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Sign In</button>
-            </form>
-
-            <!-- sign in form end -->
-
-          </div>
+            </div>
+          </form>
+          <!-- sign in form end -->
         </div>
       </div>
     </div>
-
     <!-- sign in modal end -->
 
     <!-- sign up modal start -->
-    <button type="button" id="sign-up-btn" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-modal">
-      Sign Up
-    </button>
-
-    <!-- Modal -->
     <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -73,11 +82,9 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-
-            <!-- sign up form start -->
-
-            <form id="sign-up-form" class="form-inline">
+          <!-- sign up form start -->
+          <form id="sign-up-form" class="modal-body form-inline">
+            <div class="modal-body modal-body-inner">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input name="credentials[email]" type="email" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
@@ -90,24 +97,18 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input name="credentials[password_confirmation]" type="password" class="mx-1 form-control" placeholder="Password Confirmation">
               </div>
+            </div>
+            <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Sign Up</button>
-            </form>
-
-            <!-- sign up form end -->
-
-          </div>
+            </div>
+          </form>
+          <!-- sign up form end -->
         </div>
       </div>
     </div>
-
     <!-- sign up modal end -->
 
     <!-- Button trigger modal -->
-    <button type="button" id="change-password-btn" class="btn btn-primary" data-toggle="modal" data-target="#change-password-modal">
-      Change Password
-    </button>
-
-    <!-- Modal -->
     <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -117,9 +118,9 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <!-- change password form start -->
-            <form id="change-password-form" class="form-inline">
+          <!-- change password form start -->
+          <form id="change-password-form" class="modal-body form-inline">
+            <div class="modal-body modal-body-inner">
               <div class="form-group">
                 <label>Old Password</label>
                 <input name="passwords[old]" type="password" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
@@ -128,19 +129,15 @@
                 <label>New Password</label>
                 <input name="passwords[new]" type="password" class="mx-1 form-control" placeholder="Password">
               </div>
+            </div>
+            <div class="modal-body">
               <button type="submit" class="btn btn-primary">Change</button>
-            </form>
-            <!-- change password form end -->
-          </div>
+            </div>
+          </form>
+          <!-- change password form end -->
         </div>
       </div>
     </div>
-
-    <!-- sign out form start -->
-    <form id="sign-out-form">
-      <input type="submit" class="btn btn-primary" value="Sign Out">
-    </form>
-    <!-- sign out form end -->
 
   </nav>
 
@@ -200,16 +197,16 @@
 
       <form class="my-2" id="create-ingredient-form">
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 flex-center my-1">
             <input name="ingredient[name]" type="text" class="form-control" placeholder="Enter ingredient name">
           </div>
-          <div class="col">
+          <div class="col-sm-4 flex-center my-1">
             <input name="meal[unit]" type="text" class="form-control" placeholder="Enter ingredient unit">
           </div>
-          <div class="col">
+          <div class="col-sm-4 flex-center my-1">
             <input name="meal[amount]" type="text" class="form-control" placeholder="Enter ingredient amount">
           </div>
-          <div class="col">
+          <div class="col flex-center my-2">
             <input class="btn my-1" type="submit" value="Create Ingredient">
           </div>
         </div>
@@ -217,16 +214,16 @@
 
       <form class="my-2" id="update-ingredient-form">
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 flex-center my-1">
             <input name="ingredient[name]" type="text" class="form-control" placeholder="Updated ingredient name">
           </div>
-          <div class="col">
+          <div class="col-sm-4 flex-center my-1">
             <input name="meal[unit]" type="text" class="form-control" placeholder="Enter ingredient unit">
           </div>
-          <div class="col">
+          <div class="col-sm-4 flex-center my-1">
             <input name="meal[amount]" type="text" class="form-control" placeholder="Enter ingredient amount">
           </div>
-          <div class="col">
+          <div class="col flex-center my-2">
             <input class="btn my-1" type="submit" value="Update Ingredient">
           </div>
         </div>

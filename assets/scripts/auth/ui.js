@@ -57,6 +57,8 @@ const signOutSuccess = () => {
   $('#crud-content-indv').empty()
   $('#crud-content-footer').empty()
 
+  $('.dropdown').dropdown('toggle')
+
   $('#intro-message').show()
   const noAuthMessageHtml = noAuthMessageTemplate()
   $('#var-jumbo-message').html(noAuthMessageHtml)

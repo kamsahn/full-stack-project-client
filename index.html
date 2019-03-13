@@ -84,7 +84,7 @@
   </nav>
 
   <main>
-    <div id="content-flex" class="content-flex">
+    <div id="content-flex" class="content-flex flex-center">
       <div id="crud-content"></div>
     </div>
 
@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <div class="form-wrapper container" id="form-wrapper">
+    <div class="form-wrapper flex-center" id="form-wrapper">
 
       <!-- recipe forms start -->
 
@@ -175,10 +175,11 @@
 
       <form class="my-2" id="create-direction-form">
         <div class="row">
-          <div class="col">
-            <input name="direction[step]" type="text" class="form-control" placeholder="Enter step here">
+          <div class="col-12 form-group">
+            <textarea name="direction[step]" class="form-control" rows="3" placeholder="Enter step here"></textarea>
           </div>
-          <div class="col">
+
+          <div class="col flex-center">
             <input class="btn my-1" type="submit" value="Create Direction">
           </div>
         </div>
@@ -186,10 +187,10 @@
 
       <form class="my-2" id="update-direction-form">
         <div class="row">
-          <div class="col">
-            <input name="direction[step]" type="text" class="form-control" placeholder="Updated step here">
+          <div class="col-12 form-group">
+            <textarea name="direction[step]" class="form-control" rows="3" placeholder="Updated step here"></textarea>
           </div>
-          <div class="col">
+          <div class="col flex-center">
             <input class="btn my-1" type="submit" value="Update Direction">
           </div>
         </div>
@@ -197,11 +198,12 @@
 
       <!-- direction forms end -->
 
+    </div>
 
-      <form id="get-recipes-target" class="col-2">
+    <div class="flex-center">
+      <form id="get-recipes-target">
         <input class="btn btn-primary btn-lg" type="submit" value="Recipes">
       </form>
-
     </div>
 
   </main>

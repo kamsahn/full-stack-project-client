@@ -1,5 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 
+.btn-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .card-footer {
   display: flex;
   font-size: .75em;
@@ -14,15 +19,16 @@
 
 .content-flex {
   align-items: center;
-  display: flex;
   flex-direction: row;
+}
+
+.flex-center {
+  display: flex;
   justify-content: center;
 }
 
 .form-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .list-a {

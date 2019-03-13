@@ -18,6 +18,15 @@ const getRecipesSuccess = (responseData) => {
   $('#crud-content').html(showRecipesHtml)
   $('#intro-message').hide()
   $('#get-recipes-target').hide()
+
+  $('#create-recipe-form').hide()
+  $('#update-recipe-form').hide()
+
+  $('#create-ingredient-form').hide()
+  $('#update-ingredient-form').hide()
+
+  $('#create-direction-form').hide()
+  $('#update-direction-form').hide()
 }
 
 const getRecipeSuccess = (responseData) => {
@@ -25,12 +34,22 @@ const getRecipeSuccess = (responseData) => {
   const indexRecipeHtml = indexRecipeTemplate({ recipe: responseData.recipe })
   $('#crud-content').html(indexRecipeHtml)
   $('#get-recipes-target').show()
+
   store.mealCreateRecipeId = null
   store.updateRecId = null
   store.deleteRecId = null
   store.dirCreateRecipeId = null
   store.dirUpdateRecId = null
   store.dirDeleteRecId = null
+
+  $('#create-recipe-form').hide()
+  $('#update-recipe-form').hide()
+
+  $('#create-ingredient-form').hide()
+  $('#update-ingredient-form').hide()
+
+  $('#create-direction-form').hide()
+  $('#update-direction-form').hide()
 }
 
 const updateRecipeSuccess = (responseData) => {

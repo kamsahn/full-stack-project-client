@@ -35,7 +35,9 @@ The front end was more straight forward. I needed a way for users to sign in, an
 ## Wireframes
 
 [Wireframe Auth](https://i.imgur.com/QJJVCAs.jpg)
+
 [Wireframe Main](https://i.imgur.com/L4bsLdw.jpg)
+
 [Wireframe Friends](https://i.imgur.com/n8KJjaq.jpg)
 
 ## User Stories

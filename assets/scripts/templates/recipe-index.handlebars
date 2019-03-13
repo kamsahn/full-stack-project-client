@@ -3,14 +3,14 @@
   <div class="card-body">
     <h5 class="card-title recipe-name" data-id="{{recipe.id}}">
       {{#if recipe.name}}
-        {{recipe.name}}
+        {{limit recipe.name 36}}
       {{else}}
         No name provided.
       {{/if}}
     </h5>
     <p class="card-text">
       {{#if recipe.description}}
-        {{recipe.description}}
+        {{limit recipe.description 185}}
       {{else}}
         No description provided.
       {{/if}}

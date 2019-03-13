@@ -1,16 +1,24 @@
 {{#each recipes as |recipe|}}
 
-  <div class="recipe card" style="width: 18rem;">
+  <div class="recipe card" style="width: 18rem; height: 16rem;">
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div data-id="{{recipe.id}}" class="card-body">
-      <h5 class="card-title">{{recipe.name}}</h5>
-      <p class="card-text">
-        {{#if recipe.description}}
-          {{recipe.description}}
-        {{else}}
-          No description provided.
-        {{/if}}
-      </p>
+      <div class="card-wrapper">
+        <h5 class="card-title">
+          {{#if recipe.name}}
+            {{limit recipe.name 28}}
+          {{else}}
+            No name provided.
+          {{/if}}
+        </h5>
+        <p class="card-text">
+          {{#if recipe.description}}
+            {{limit recipe.description 185}}
+          {{else}}
+            No description provided.
+          {{/if}}
+        </p>
+      </div>
 
       <div class="btn-wrapper">
         <button class="btn btn-get" data-id="{{recipe.id}}">View</button>

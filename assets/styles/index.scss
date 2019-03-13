@@ -5,6 +5,12 @@
   justify-content: space-evenly;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card-footer {
   display: flex;
   font-size: .75em;
@@ -24,10 +30,11 @@
 
 .crud-content {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-center {
+  align-items: center;
   display: flex;
   justify-content: center;
 }

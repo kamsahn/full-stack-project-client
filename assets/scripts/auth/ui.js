@@ -36,6 +36,7 @@ const changePasswordSuccess = () => {
 
 const signOutSuccess = () => {
   $('form').trigger('reset')
+
   $('#change-password-form').hide()
   $('#change-password-button').hide()
   $('#sign-out-form').hide()
@@ -52,6 +53,7 @@ const signOutSuccess = () => {
   $('#update-direction-form').hide()
 
   $('#crud-content').empty()
+  $('#crud-content-footer').empty()
 
   $('#intro-message').show()
   const noAuthMessageHtml = noAuthMessageTemplate()

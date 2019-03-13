@@ -1,28 +1,25 @@
 {{#each recipes as |recipe|}}
 
+  <div class="recipe card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div data-id="{{recipe.id}}" class="card-body">
+      <h5 class="card-title">{{recipe.name}}</h5>
+      <p class="card-text">
+        {{#if recipe.description}}
+          {{recipe.description}}
+        {{else}}
+          No description provided.
+        {{/if}}
+      </p>
 
-<div class="recipe card" style="width: 18rem;">
-  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-  <div data-id="{{recipe.id}}" class="card-body">
-    <h5 class="card-title">{{recipe.name}}</h5>
-    <p class="card-text">
-      {{#if recipe.description}}
-      {{recipe.description}}
-      {{else}}
-      No description provided.
-      {{/if}}
-    </p>
+      <div class="btn-wrapper">
+        <button class="btn btn-get" data-id="{{recipe.id}}">View</button>
+        <button class="btn btn-update" data-id="{{recipe.id}}">Update</button>
+        <button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
+      </div>
 
-    <div class="btn-wrapper">
-      <button class="btn btn-get" data-id="{{recipe.id}}">View</button>
-      <button class="btn btn-update" data-id="{{recipe.id}}">Update</button>
-      <button class="btn btn-danger" data-id="{{recipe.id}}">Remove</button>
     </div>
-
   </div>
-</div>
+
 
 {{/each}}
-<div class="card-true-footer">
-  <button class="btn btn-create my-2">Create Recipe</button>
-</div>

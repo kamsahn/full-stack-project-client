@@ -19,6 +19,11 @@
 
 .content-flex {
   align-items: center;
+  flex-direction: column;
+}
+
+.crud-content {
+  display: flex;
   flex-direction: row;
 }
 
@@ -55,4 +60,10 @@ main {
 
 .navbar {
   margin-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .crud-content {
+    flex-direction: column;
+  }
 }

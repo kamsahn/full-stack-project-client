@@ -2,6 +2,7 @@
 
 const store = require('../store.js')
 const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
+const showRecipesFooterTemplate = require('../templates/recipe-listing-footer.handlebars')
 const indexRecipeTemplate = require('../templates/recipe-index.handlebars')
 
 const createRecipeSuccess = (responseData) => {
@@ -14,9 +15,12 @@ const createRecipeSuccess = (responseData) => {
 const getRecipesSuccess = (responseData) => {
   $('form').trigger('reset')
   $('#intro-message').hide()
+
   const showRecipesHtml = showRecipesTemplate({ recipes: responseData.recipes })
   $('#crud-content').html(showRecipesHtml)
-  $('#intro-message').hide()
+  const showRecipesFooterHtml = showRecipesFooterTemplate()
+  $('#crud-content-footer').html(showRecipesFooterHtml)
+
   $('#get-recipes-target').hide()
 
   $('#create-recipe-form').hide()

@@ -80,10 +80,10 @@ const recipeHandler = () => {
   $('#var-jumbo-message').on('submit', '#get-recipes-form', onGetRecipes)
   $('#get-recipes-target').on('submit', onGetRecipes)
   $('#update-recipe-form').on('submit', onUpdateRecipe)
-  $('#crud-content').on('click', '.btn-create', onStartCreateRecipe)
-  $('#crud-content').on('click', '.btn-get', onGetRecipe)
-  $('#crud-content').on('click', '.btn-update', onStartUpdateRecipe)
-  $('#crud-content').on('click', '.btn-danger', onDeleteRecipe)
+  $('#content').on('click', '.btn-create', onStartCreateRecipe)
+  $('#content').on('click', '.btn-get', onGetRecipe)
+  $('#content').on('click', '.btn-update', onStartUpdateRecipe)
+  $('#content').on('click', '.btn-danger', onDeleteRecipe)
 }
 
 module.exports = {

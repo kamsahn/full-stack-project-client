@@ -78,9 +78,9 @@ const directionHandler = () => {
   $('#create-direction-form').on('submit', onCreateDirection)
   $('#update-direction-form').on('submit', onUpdateDirection)
   $('#delete-direction-form').on('submit', onDeleteDirection)
-  $('#crud-content').on('click', '.btn-add-dir', onStartCreateDirection)
-  $('#crud-content').on('click', '.dir-edit', onStartUpdateDirection)
-  $('#crud-content').on('click', '.dir-del', onStartDeleteDirection)
+  $('#content').on('click', '.btn-add-dir', onStartCreateDirection)
+  $('#content').on('click', '.dir-edit', onStartUpdateDirection)
+  $('#content').on('click', '.dir-del', onStartDeleteDirection)
 }
 
 module.exports = {

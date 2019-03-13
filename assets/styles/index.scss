@@ -1,1 +1,52 @@
 @import '~bootstrap/scss/bootstrap';
+
+.card-footer {
+  display: flex;
+  font-size: .75em;
+  justify-content: flex-end;
+  margin-top: -4px;
+}
+
+.card-true-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-flex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 3em auto;
+}
+
+.list-a {
+  cursor: pointer;
+  margin-top: -.5em;
+
+  &:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+}
+
+.list-group-item {
+  height: 2.5em;
+}
+
+.list-title {
+  margin: 1em .5em;
+}
+
+main {
+  margin: 0 20%;
+}
+
+.navbar {
+  margin-bottom: 10px;
+}

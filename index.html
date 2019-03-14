@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  <title>Recipes</title>
+  <title>Green Beans</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="public/chef-2.ico">
-
+  <link href="https://fonts.googleapis.com/css?family=Charmonman|Damion|Cookie" rel="stylesheet">
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -16,7 +16,7 @@
 <body>
 
   <nav class="navbar justify-content-between">
-    <a class="navbar-brand">Recipe Tracker</a>
+    <a class="navbar-brand">Green Beans</a>
     <p id="user-message" style="color: red;"></p>
 
     <div class="dropdown">
@@ -166,13 +166,13 @@
 
       <form class="my-2" id="create-recipe-form">
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 my-1">
             <input name="recipe[name]" type="text" class="form-control" placeholder="Enter recipe name">
           </div>
-          <div class="col">
+          <div class="col-sm-4 my-1">
             <input name="recipe[description]" type="text" class="form-control" placeholder="Enter recipe description">
           </div>
-          <div class="col">
+          <div class="col flex-center">
             <input class="btn btn-butter my-1" type="submit" value="Create Recipe">
           </div>
         </div>
@@ -180,13 +180,13 @@
 
       <form class="my-2" id="update-recipe-form">
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 my-1">
             <input name="recipe[name]" type="text" class="form-control" placeholder="Updated recipe name">
           </div>
-          <div class="col">
+          <div class="col-sm-4 my-1">
             <input name="recipe[description]" type="text" class="form-control" placeholder="Updated recipe description">
           </div>
-          <div class="col">
+          <div class="col flex-center">
             <input class="btn btn-butter my-1" type="submit" value="Update Recipe">
           </div>
         </div>

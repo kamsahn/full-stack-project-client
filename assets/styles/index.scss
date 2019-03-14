@@ -1,5 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background-blend-mode: lighten;
+  background-color: rgba(255, 255, 255, .4);
+  background-image: url('public/food-background-2.jpg');
+  background-size: 115%;
+}
+
 .btn-custom {
   background-color: inherit;
   font-family: inherit;
@@ -32,6 +39,7 @@
 .content-flex {
   align-items: center;
   flex-direction: column;
+  margin-top: 2em;
 }
 
 .crud-content {

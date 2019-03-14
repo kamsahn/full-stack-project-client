@@ -1,10 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
+$clean: #a7d2cb;
+$butter: #f2d388;
+$salmon: #c98474;
+$eggplant: #874c62;
+
 body {
   background-blend-mode: lighten;
   background-color: rgba(255, 255, 255, .4);
   background-image: url('public/food-background-2.jpg');
   background-size: 115%;
+}
+
+// .btn-create, get, update, recipe-form
+.btn-butter {
+  background-color: $butter;
 }
 
 .btn-custom {
@@ -13,9 +23,21 @@ body {
   font-size: 100%;
 }
 
+.btn-main {
+  background-color: $clean;
+}
+
+.btn-rmv {
+  background-color: $salmon;
+}
+
 .btn-wrapper {
   display: flex;
   justify-content: space-evenly;
+}
+
+.butter-background {
+  background-color: $butter;
 }
 
 .card-body-list {
@@ -49,9 +71,23 @@ body {
   width: 54rem;
 }
 
+.dropdown-item {
+  color: $eggplant;
+}
+
 .dropdown-menu {
   left: auto;
   right: 0;
+}
+
+.dropdown-toggle {
+  background-color: $butter;
+  border: 3px solid $salmon;
+  color: $eggplant;
+}
+
+.egg-text {
+  color: $eggplant;
 }
 
 .flex-center {
@@ -61,6 +97,9 @@ body {
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin: .25em 0;
 }
 
@@ -79,18 +118,22 @@ body {
   margin: 1em .5em;
 }
 
+.jumbotron {
+  background-color: $clean;
+  border: 5px solid $butter;
+}
+
 main {
   margin: 0 20%;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.navbar {
+  background-color: $clean;
+  margin-bottom: 10px;
 }
 
-.navbar {
-  margin-bottom: 10px;
+.navbar-brand {
+  color: $eggplant !important;
 }
 
 .recipe {

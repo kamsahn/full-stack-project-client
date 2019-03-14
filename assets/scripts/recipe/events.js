@@ -83,7 +83,7 @@ const recipeHandler = () => {
   $('#content').on('click', '.btn-create', onStartCreateRecipe)
   $('#content').on('click', '.btn-get', onGetRecipe)
   $('#content').on('click', '.btn-update', onStartUpdateRecipe)
-  $('#content').on('click', '.btn-danger', onDeleteRecipe)
+  $('#content').on('click', '.btn-rmv', onDeleteRecipe)
 }
 
 module.exports = {

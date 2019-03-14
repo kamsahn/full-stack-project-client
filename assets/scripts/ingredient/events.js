@@ -95,7 +95,6 @@ const onStartUpdateIngredient = (event) => {
   store.mealUpdateMealId = mealId
   const recId = $(event.target).parent().parent().data('rec-id')
   store.updateRecId = recId
-  console.log(recId)
 }
 
 const onStartDeleteIngredient = (event) => {

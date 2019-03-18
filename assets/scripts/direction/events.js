@@ -12,6 +12,7 @@ const onCreateDirection = (event) => {
   const form = event.target
   const formData = getFormFields(form)
   formData.direction.recipe_id = store.dirCreateRecipeId
+  formData.direction.user_id = store.user.id
   api.createDirection(formData)
     .then(ui.createDirectionSuccess)
     .then(() => {

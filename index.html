@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Green Beans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="public/chef-2.ico">
+  <link href="https://fonts.googleapis.com/css?family=Charmonman|Damion|Cookie" rel="stylesheet">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar justify-content-between">
+    <a class="navbar-brand">Green Beans</a>
+    <p id="user-message" style="color: red;"></p>
+
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Chef's Account
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+        <button type="button" id="sign-in-btn" class="dropdown-item btn-custom" data-toggle="modal" data-target="#sign-in-modal">
+          Sign In
+        </button>
+        <button type="button" id="sign-up-btn" class="dropdown-item btn-custom" data-toggle="modal" data-target="#sign-up-modal">
+          Sign Up
+        </button>
+        <button type="button" id="change-password-btn" class="dropdown-item btn-custom" data-toggle="modal" data-target="#change-password-modal">
+          Change Password
+        </button>
+        <form id="sign-out-form">
+          <input type="submit" class="dropdown-item btn-custom" value="Sign Out">
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Sign in modal start -->
+    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- sign in form start -->
+          <form id="sign-in-form" class="modal-body form-inline">
+            <div class="modal-body modal-body-inner">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="credentials[email]" type="email" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="credentials[password]" type="password" class="mx-1 form-control" placeholder="Password">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-main">Sign In</button>
+            </div>
+          </form>
+          <!-- sign in form end -->
+        </div>
+      </div>
+    </div>
+    <!-- sign in modal end -->
+
+    <!-- sign up modal start -->
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- sign up form start -->
+          <form id="sign-up-form" class="modal-body form-inline">
+            <div class="modal-body modal-body-inner">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="credentials[email]" type="email" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="credentials[password]" type="password" class="mx-1 form-control" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="credentials[password_confirmation]" type="password" class="mx-1 form-control" placeholder="Password Confirmation">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-main">Sign Up</button>
+            </div>
+          </form>
+          <!-- sign up form end -->
+        </div>
+      </div>
+    </div>
+    <!-- sign up modal end -->
+
+    <!-- Button trigger modal -->
+    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- change password form start -->
+          <form id="change-password-form" class="modal-body form-inline">
+            <div class="modal-body modal-body-inner">
+              <div class="form-group">
+                <label>Old Password</label>
+                <input name="passwords[old]" type="password" class="mx-1 form-control" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input name="passwords[new]" type="password" class="mx-1 form-control" placeholder="Password">
+              </div>
+            </div>
+            <div class="modal-body">
+              <button type="submit" class="btn btn-main">Change</button>
+            </div>
+          </form>
+          <!-- change password form end -->
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+  <main>
+    <div class="content-flex flex-center" id="content">
+      <div class="crud-content flex-center" id="crud-content"></div>
+      <div class="crud-content-indv flex-center" id="crud-content-indv"></div>
+      <div class="crud-content-footer" id="crud-content-footer"></div>
+    </div>
+
+    <div id="intro-message" class="jumbotron my-3">
+      <div id="var-jumbo-heading" class="jumbo-heading">
+        <h1 class="display-4 egg-text">Welcome to your cookbook!</h1>
+      </div>
+      <p class="lead egg-text">This is a simple, easy to use web app for tracking your own recipes. You can name and describe your idea and add ingredients and directions to it. View a recipe to see more details.</p>
+      <hr class="my-4">
+      <div id="var-jumbo-message">
+        <p class="egg-text">Sign in to get cooking!</p>
+      </div>
+    </div>
+
+    <div class="form-wrapper flex-center" id="form-wrapper">
+
+      <!-- recipe forms start -->
+
+      <form class="my-2" id="create-recipe-form">
+        <div class="row">
+          <div class="col-sm-4 my-1">
+            <input name="recipe[name]" type="text" class="form-control" placeholder="Enter recipe name">
+          </div>
+          <div class="col-sm-4 my-1">
+            <input name="recipe[description]" type="text" class="form-control" placeholder="Enter recipe description">
+          </div>
+          <div class="col flex-center">
+            <input class="btn btn-butter my-1" type="submit" value="Create Recipe">
+          </div>
+        </div>
+      </form>
+
+      <form class="my-2" id="update-recipe-form">
+        <div class="row">
+          <div class="col-sm-4 my-1">
+            <input name="recipe[name]" type="text" class="form-control" placeholder="Updated recipe name">
+          </div>
+          <div class="col-sm-4 my-1">
+            <input name="recipe[description]" type="text" class="form-control" placeholder="Updated recipe description">
+          </div>
+          <div class="col flex-center">
+            <input class="btn btn-butter my-1" type="submit" value="Update Recipe">
+          </div>
+        </div>
+      </form>
+
+      <!-- recipe forms end -->
+
+      <!-- ingredient forms start -->
+
+      <form class="my-2" id="create-ingredient-form">
+        <div class="row">
+          <div class="col-sm-4 flex-center my-1">
+            <input name="ingredient[name]" type="text" class="form-control" placeholder="Enter ingredient name">
+          </div>
+          <div class="col-sm-4 flex-center my-1">
+            <input name="meal[unit]" type="text" class="form-control" placeholder="Enter ingredient unit">
+          </div>
+          <div class="col-sm-4 flex-center my-1">
+            <input name="meal[amount]" type="text" class="form-control" placeholder="Enter ingredient amount">
+          </div>
+          <div class="col flex-center my-2">
+            <input class="btn btn-butter my-1" type="submit" value="Create Ingredient">
+          </div>
+        </div>
+      </form>
+
+      <form class="my-2" id="update-ingredient-form">
+        <div class="row">
+          <div class="col-sm-4 flex-center my-1">
+            <input name="ingredient[name]" type="text" class="form-control" placeholder="Updated ingredient name">
+          </div>
+          <div class="col-sm-4 flex-center my-1">
+            <input name="meal[unit]" type="text" class="form-control" placeholder="Enter ingredient unit">
+          </div>
+          <div class="col-sm-4 flex-center my-1">
+            <input name="meal[amount]" type="text" class="form-control" placeholder="Enter ingredient amount">
+          </div>
+          <div class="col flex-center my-2">
+            <input class="btn btn-butter my-1" type="submit" value="Update Ingredient">
+          </div>
+        </div>
+      </form>
+
+      <!-- ingredient forms end -->
+
+      <!-- direction forms start -->
+
+      <form class="my-2" id="create-direction-form">
+        <div class="row">
+          <div class="col-12 form-group">
+            <textarea name="direction[step]" class="form-control" rows="3" placeholder="Enter step here"></textarea>
+          </div>
+
+          <div class="col flex-center">
+            <input class="btn btn-butter my-1" type="submit" value="Create Direction">
+          </div>
+        </div>
+      </form>
+
+      <form class="my-2" id="update-direction-form">
+        <div class="row">
+          <div class="col-12 form-group">
+            <textarea name="direction[step]" class="form-control" rows="3" placeholder="Updated step here"></textarea>
+          </div>
+          <div class="col flex-center">
+            <input class="btn btn-butter my-1" type="submit" value="Update Direction">
+          </div>
+        </div>
+      </form>
+
+      <!-- direction forms end -->
+
+    </div>
+
+    <div class="my-2 flex-center">
+      <form id="get-recipes-target">
+        <input class="btn btn-butter btn-main btn-lg" type="submit" value="Recipes">
+      </form>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

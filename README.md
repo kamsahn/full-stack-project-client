@@ -18,12 +18,6 @@ A web app that allows users to create their own recipes. They can be stored, edi
 
 HTML5, CSS, JavaScript, Bootstrap, SASS, Handlebars, jQuery, Ruby on Rails, SQL, git
 
-## Unsolved Problems
-
-Currently, the app database is underutilized. There is a many-to-many relationship between recipes and ingredients, but the app currently treats them as one-to-many. Upon future iterations, there will be reworking to allow the backend to search if an ingredient already exists before creating a new instance of the same ingredient name.
-
-Upon future iterations, the app will support social interaction and let users share recipes with friends other the app.
-
 ## Development Process
 
 The idea to make a recipe tracker app was easy enough to come by. I wanted a convenient place to store all my recipes and a simple way to keep track of new ones. I provided most of the user stories based on things that I would like to see.
@@ -52,3 +46,9 @@ As a user, I want to add friends with this app
 ## Entity Relationship Diagram
 
 [ERD](https://i.imgur.com/Bn6YY5Y.jpg)
+
+## Unsolved Problems
+
+Currently, the app database is underutilized. There is a many-to-many relationship between recipes and ingredients, but the app currently treats them as one-to-many. Upon future iterations, there will be reworking to allow the backend to search if an ingredient already exists before creating a new instance of the same ingredient name.
+
+Upon future iterations, the app will support social interaction and let users share recipes with friends other the app.
